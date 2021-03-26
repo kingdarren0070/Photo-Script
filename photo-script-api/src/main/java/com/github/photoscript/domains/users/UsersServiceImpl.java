@@ -103,4 +103,15 @@ public class UsersServiceImpl implements UsersService{
     }
   }
 
+  @Override
+  public Users getUserByEmail(String email) {
+    Users result;
+    try {
+      result = usersRepository.findByEmail(email);
+    } catch (Exception e) {
+      throw new ResourceNotFound("Could not locate a user with the email: " + email);
+    }
+
+    return result;
+  }
 }

@@ -12,7 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsersServiceImpl implements UsersService{
 
   private final Logger logger = LoggerFactory.getLogger(UsersServiceImpl.class);

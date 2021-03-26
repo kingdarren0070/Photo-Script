@@ -1,0 +1,18 @@
+logging:
+  level:
+    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: ERROR
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://35.232.245.179:5432/photo-script
+    username: photoscript
+    password: password
+    driverClassName: org.postgresql.Driver
+  security:
+    user:
+      password: password

@@ -1,13 +1,13 @@
 .mainContainer {
-  background-color: #070b17;
+  background-color: var(--color-button-background);
   color: white;
-  border: 1px solid #070b17;
+  border: 1px solid var(--color-dark-border);
   border-radius: 5px;
   padding: 12px 40px;
   font-size: large;
 }
 
 .mainContainer:hover {
-  background-color: black;
+  background-color: var(--color-button-hover);
   cursor: pointer;
 }

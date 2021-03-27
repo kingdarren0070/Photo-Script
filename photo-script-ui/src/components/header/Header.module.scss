@@ -12,9 +12,11 @@
 .title {
     display: block;
     margin-left: 6%;
-    font-size: 35px;
+    font-size: 50px;
     text-decoration: none;
-    color: var(--color-text);
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+    color: transparent;
 }
 
 .navLinks {

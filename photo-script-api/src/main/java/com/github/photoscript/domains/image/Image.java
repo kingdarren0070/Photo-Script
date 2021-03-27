@@ -17,14 +17,14 @@ public class Image {
   @NotBlank
   private String imgName;
 
-  @NotBlank
-  private String imgData;
+  @NotNull
+  private byte[] imgData;
 
   public Image() {
   }
 
   public Image(@NotNull Long userId, @NotBlank String imgName,
-      @NotBlank String imgData) {
+      @NotBlank byte[] imgData) {
     this.userId = userId;
     this.imgName = imgName;
     this.imgData = imgData;
@@ -54,11 +54,11 @@ public class Image {
     this.imgName = imgName;
   }
 
-  public String getImgData() {
+  public byte[] getImgData() {
     return imgData;
   }
 
-  public void setImgData(String imgData) {
+  public void setImgData(byte[] imgData) {
     this.imgData = imgData;
   }
 

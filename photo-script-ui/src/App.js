@@ -1,19 +1,14 @@
 import React from 'react';
-import DragAndDropBox from './components/DragAndDropBox/DragAndDropBox';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './components/pages/home/Home';
 
 function App() {
-
-  const test = () => {
-    return (
-      <p>hello</p>
-    )
-  }
-
-  return (
-    <DragAndDropBox
-      boxStyles="test"
-      children={[test]}
-    />
+  return(
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Router>
   )
 }
 

@@ -5,7 +5,7 @@
     max-height: 12vh;
     background: #070B17;
     color: white;
-    position: fixed;
+    position: sticky;
     width: 100%;
 }
 
@@ -13,6 +13,8 @@
     display: block;
     margin-left: 6%;
     font-size: 35px;
+    text-decoration: none;
+    color: white;
 }
 
 .navLinks {

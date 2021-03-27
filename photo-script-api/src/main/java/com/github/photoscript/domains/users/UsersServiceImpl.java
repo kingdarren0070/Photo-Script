@@ -54,7 +54,7 @@ public class UsersServiceImpl implements UsersService{
 
   @Override
   public Users createUser(Users user) throws NoSuchAlgorithmException {
-    if(usersRepository.existsUserByEmail(user.getEmail())) {
+    if(usersRepository.existsUserByUsername(user.getUsername())) {
       throw new FieldAlreadyPresent("Email already in use");
     }
 
@@ -107,7 +107,7 @@ public class UsersServiceImpl implements UsersService{
   public Users getUserByEmail(String email) {
     Users result;
     try {
-      result = usersRepository.findByEmail(email);
+      result = usersRepository.findByUsername(email);
     } catch (Exception e) {
       throw new ResourceNotFound("Could not locate a user with the email: " + email);
     }

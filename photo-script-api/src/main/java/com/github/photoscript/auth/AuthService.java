@@ -24,7 +24,7 @@ public class AuthService implements AuthenticationProvider {
     String username = authentication.getName();
     String password = authentication.getCredentials().toString();
 
-    Users foundUser = usersRepository.findByEmail(username);
+    Users foundUser = usersRepository.findByUsername(username);
     if(foundUser == null) {
       throw new UsernameNotFoundException("Email " + username + " not found.");
     } else {
@@ -34,7 +34,7 @@ public class AuthService implements AuthenticationProvider {
       } catch (NoSuchAlgorithmException e) {
         e.printStackTrace();
       }
-      String email = foundUser.getEmail();
+      String email = foundUser.getUsername();
       String pass = foundUser.getPassword();
       if(password.equals(pass) && username.equals(email)) {
         authenticationToken = new UsernamePasswordAuthenticationToken(username, password);

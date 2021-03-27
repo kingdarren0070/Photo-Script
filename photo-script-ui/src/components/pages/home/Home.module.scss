@@ -1,12 +1,11 @@
 .mainContainer {
   // background-color: #eee;
-  background-image: url(../../images/backgroundImage.png);
+  background-image: url(../../../images/backgroundImage.png);
   overflow: auto;
-  min-height: 90vh;
+  min-height: 88vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10vh;
 }
 
 .subContainer {

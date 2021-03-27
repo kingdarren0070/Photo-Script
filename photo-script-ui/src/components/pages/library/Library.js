@@ -19,10 +19,13 @@ function Library () {
             await axiosCall('get', `http://localhost:8080/images/userId/${sessionStorage.getItem("userId")}`)
                 .then((res) => {
                     setImages(res.data)
+                    if(res.data.length === 0) {
+                        setNotice("No Images Found!")
+                    }
                     setLoading(false)
                 })
                 .catch(() => {
-                    setNotice("No Images Found!")
+                    setNotice("Could not process request")
                 });
         }
 

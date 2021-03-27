@@ -13,7 +13,7 @@ function Header () {
 
     return (
         <nav className={styles.bar}>
-            <h1 className={styles.title}>PhotoScript</h1>
+            <p className={styles.title}>PhotoScript</p>
             {loggedIn
             ? (
                 <ul className={styles.navLinks}>

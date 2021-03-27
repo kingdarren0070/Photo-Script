@@ -1,7 +1,31 @@
 .formContainer {
-    margin-left: 25%;
-    margin-top: 10%;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    background-image: linear-gradient(
+        45deg,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        purple,
+        violet
+    );
+    background-size: 500%;
+    animation: form-bg-animation 12s infinite alternate;
+}
+
+.form {
+    background-color: white;
+    padding: 25px 40px;
+    border-radius: 10px;
+}
+
+@keyframes form-bg-animation {
+    0% {background-position: left}
+    100% {background-position: right}
 }
 
 .formInput {
@@ -9,12 +33,15 @@
     font-size: 16px;
     padding: 15px 20px;
     border: thin var(--color-blackblack) solid;
-    width: 95%;
+    width: 100%;
+    min-width: 400px;
 }
 
 .formHeading {
     font-size: 30px;
-    color: white;
+    color: black;
+    margin-bottom: 10%;
+    margin-top: 5%;
 }
 
 .formButton {

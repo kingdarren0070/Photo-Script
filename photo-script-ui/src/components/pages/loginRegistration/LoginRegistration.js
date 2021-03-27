@@ -82,13 +82,22 @@ function LoginRegistration() {
 
     return (
         <div className={styles.formContainer}>
-            {loading ? <LoadingSpinner />
-            :
+            <div>
+                {
+                loading
+                ?
+                <LoadingSpinner />
+                :
                 <form className={styles.form} onSubmit={handleSubmit}>
-                    {login ? <p className={styles.formHeading}>Login</p>
-                    :
-                        <p className={styles.formHeading}>Registration</p>
-                    }
+                    <div className={styles.formHeading}>
+                        {
+                        login
+                        ?
+                        'Login'
+                        :
+                        'Registeration'
+                        }
+                    </div>
                     {error && <p className={styles.error}>{error}</p>}
                     <input className={styles.formInput} placeholder="Email" value={credentials.username} onChange = {(e) => handleChange(e, "username")} type="email"></input> <br/>
                     <input className={styles.formInput} placeholder="Password" value={credentials.password} onChange = {(e) => handleChange(e, "password")} type="password"></input> <br/>
@@ -96,7 +105,8 @@ function LoginRegistration() {
                         <button className={styles.formButton} type="submit">Submit</button>
                     </div>
                 </form>
-            }
+                }
+            </div>
         </div>
     )
 }

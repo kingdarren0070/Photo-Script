@@ -6,51 +6,40 @@ import { MainContext } from '../../context/MainContext';
 
 const NewProject = () => {
   const history = useHistory();
-
-  const {
-    setImage
-  } = useContext(MainContext);
-
+  const { setImage } = useContext(MainContext);
   const [error, setError] = useState();
 
   const dragOverHandler = e => {
     e.preventDefault();
-    console.log("dragged over")
   }
 
-  const onDropHandler = e => {
-    setError(false)
-    e.preventDefault();
-    const file = e.dataTransfer.files[0]
+  const handleImageUpload = (file) => {
     if (file.type.startsWith('image')) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (evt) => {
-        if(evt.target.readyState === FileReader.DONE) {
+        if (evt.target.readyState === FileReader.DONE) {
           setImage(evt.target.result);
           history.push('/edit');
         }
       }
+    } else {
+      setError(true)
     }
+  }
+
+  const onImageDropHandler = e => {
+    setError(false)
+    e.preventDefault();
+    const file = e.dataTransfer.files[0]
+    handleImageUpload(file)
   }
 
   const onImageUploadHandler = e => {
     setError(false)
-    console.log('image uploaded')
     e.preventDefault();
     const file = e.target.files[0];
-    console.log(file)
-    if (file.type.startsWith('image')) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (evt) => {
-        console.log(reader.result)
-        setImage(evt.target.result);
-        history.push('/edit');
-      }
-    } else {
-      setError(true)
-    }
+    handleImageUpload(file)
   }
 
   return(
@@ -67,11 +56,12 @@ const NewProject = () => {
           <div
             className={styles.uploadBoxDropZone}
             onDragOver={dragOverHandler}
-            onDrop={onDropHandler}
+            onDrop={onImageDropHandler}
+            onClick={() => document.getElementById('uploadButton').click()}
           >
-            <h4 className={styles.uploadBoxDropZoneHeading}>
-              Upload your image here
-            </h4>
+            <div className={styles.uploadBoxDropZoneHeading}>
+              Drop Your Image Here
+            </div>
             <FaFileUpload className={styles.uploadBoxDropZoneIcon}/>
           </div>
           <div style={{marginTop:'50px'}}>
@@ -79,7 +69,7 @@ const NewProject = () => {
               htmlFor="uploadButton"
               className={styles.uploadButton}
             >
-              Upload Your File Here
+              Click to Upload Image
             </label>
             <input
               accept="image/*"

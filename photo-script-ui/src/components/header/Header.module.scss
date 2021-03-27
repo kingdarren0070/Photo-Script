@@ -14,9 +14,12 @@
     display: block;
     margin-left: 6%;
     font-size: 50px;
+    font-weight: 600;
     text-decoration: none;
     font-family: Brush Script MT, Brush Script Std, cursive;
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -28,11 +31,14 @@
     list-style: none;
     color: var(--color-text);
     margin-left: 50%;
+    font-size: 20px;
 }
 
 .navLinks :hover {
     text-decoration-color: var(--color-underline);
     text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+    text-underline-offset: 5px;
 }
 
 .links {

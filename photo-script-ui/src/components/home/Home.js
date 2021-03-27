@@ -9,7 +9,7 @@ const Home = () => {
         <div className={styles.heroHeading}>
           The Best Photo Editor of 2021
         </div>
-        <Button buttonText="New Project"/>
+        <Button urlPath='/new' buttonText="New Project"/>
       </div>
     </div>
   )

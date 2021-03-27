@@ -18,13 +18,13 @@ public class Image {
   private String imgName;
 
   @NotNull
-  private byte[] imgData;
+  private String imgData;
 
   public Image() {
   }
 
   public Image(@NotNull Long userId, @NotBlank String imgName,
-      @NotBlank byte[] imgData) {
+      @NotBlank String imgData) {
     this.userId = userId;
     this.imgName = imgName;
     this.imgData = imgData;
@@ -54,11 +54,11 @@ public class Image {
     this.imgName = imgName;
   }
 
-  public byte[] getImgData() {
+  public String getImgData() {
     return imgData;
   }
 
-  public void setImgData(byte[] imgData) {
+  public void setImgData(String imgData) {
     this.imgData = imgData;
   }
 

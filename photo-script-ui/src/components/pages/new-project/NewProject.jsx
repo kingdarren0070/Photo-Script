@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styles from './NewProject.module.scss'
 import { FaFileUpload } from 'react-icons/fa' 
 import { MainContext } from '../../context/MainContext';
 
 const NewProject = () => {
-  
+  const history = useHistory();
+
   const {
     setImage
   } = useContext(MainContext);
@@ -20,16 +22,13 @@ const NewProject = () => {
     setError(false)
     e.preventDefault();
     const file = e.dataTransfer.files[0]
-    const byteArray = [];
     if (file.type.startsWith('image')) {
       const reader = new FileReader();
-      reader.readAsArrayBuffer(file);
+      reader.readAsDataURL(file);
       reader.onload = (evt) => {
         if(evt.target.readyState === FileReader.DONE) {
-          const arrayBuffer = evt.target.result;
-          const array = new Uint8Array(arrayBuffer);
-          array.map((byte) => byteArray.push(byte));
-          setImage(byteArray);
+          setImage(evt.target.result);
+          history.push('/edit');
         }
       }
     }
@@ -43,9 +42,11 @@ const NewProject = () => {
     console.log(file)
     if (file.type.startsWith('image')) {
       const reader = new FileReader();
-      reader.readAsArrayBuffer(file);
-      reader.onload = () => {
+      reader.readAsDataURL(file);
+      reader.onload = (evt) => {
         console.log(reader.result)
+        setImage(evt.target.result);
+        history.push('/edit');
       }
     } else {
       setError(true)

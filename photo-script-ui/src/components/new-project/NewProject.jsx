@@ -31,16 +31,18 @@ const NewProject = () => {
 
   return(
     <div className={styles.mainContainer}>
-      <input type="file" className="invisibleUploader" />
-      <div
-        className={styles.uploadBox}
-        onDragOver={dragOverHandler}
-        onDrop={imageUploadHandler}
-      >
-        <h4 className={styles.uploadBoxHeading}>
-          Upload your image here
-        </h4>
-        <FaFileUpload className={styles.uploadIcon}/>
+      <div className={styles.subContainer}>
+        <div
+          className={styles.uploadBox}
+          onDragOver={dragOverHandler}
+          onDrop={imageUploadHandler}
+        >
+          <h4 className={styles.uploadBoxHeading}>
+            Upload your image here
+          </h4>
+          <FaFileUpload className={styles.uploadIcon}/>
+        </div>
+        <input className={styles.fileUploader} type="file"/>
       </div>
     </div>
   )

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @CrossOrigin(origins = "http://localhost:3000")
 public class UsersController {
   private final Logger logger = LoggerFactory.getLogger(UsersController.class);
@@ -42,6 +42,7 @@ public class UsersController {
   @PostMapping
   public ResponseEntity<Users> createUser(@Valid @RequestBody Users user) throws NoSuchAlgorithmException {
     logger.info("Create new user request received");
+    System.out.println(user);
     return new ResponseEntity<>(usersService.createUser(user), HttpStatus.CREATED);
   }
 

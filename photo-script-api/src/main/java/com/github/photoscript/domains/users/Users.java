@@ -13,7 +13,7 @@ public class Users {
   private Long id;
 
   @NotBlank
-  private String email;
+  private String username;
 
   @NotBlank
   private String password;
@@ -23,11 +23,10 @@ public class Users {
 
   public Users() {}
 
-  public Users(@NotBlank String email,
-      @NotBlank String password, String salt) {
-    this.email = email;
+  public Users(@NotBlank String username,
+      @NotBlank String password) {
+    this.username = username;
     this.password = password;
-    this.salt = salt;
   }
 
   public Long getId() {
@@ -38,12 +37,12 @@ public class Users {
     this.id = id;
   }
 
-  public String getEmail() {
-    return email;
+  public String getUsername() {
+    return username;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setUsername(String email) {
+    this.username = email;
   }
 
   public String getPassword() {
@@ -66,7 +65,7 @@ public class Users {
   public String toString() {
     return "Users{" +
         "id=" + id +
-        ", email='" + email + '\'' +
+        ", email='" + username + '\'' +
         ", password='" + password + '\'' +
         ", salt='" + salt + '\'' +
         '}';

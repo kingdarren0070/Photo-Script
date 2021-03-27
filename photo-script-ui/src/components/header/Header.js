@@ -4,7 +4,7 @@ import { MainContext } from '../context/MainContext';
 import styles from './Header.module.scss';
 
 function Header () {
-    const {loggedIn, userId, setLoggedIn} = useContext(MainContext);
+    const {loggedIn, setLoggedIn, user} = useContext(MainContext);
 
     const handleLogout = () => {
         setLoggedIn(false);
@@ -13,17 +13,17 @@ function Header () {
 
     return (
         <nav className={styles.bar}>
-            <p className={styles.title}>PhotoScript</p>
+            <Link className={styles.title} to="/"><p>PhotoScript</p></Link>
             {loggedIn
             ? (
                 <ul className={styles.navLinks}>
-                    <NavLink className={styles.links} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${userId}`}>Profile</NavLink>
+                    <NavLink className={styles.links} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${user.id}`}>Profile</NavLink>
                     <Link className={styles.links} to="/" onClick={handleLogout}>Logout</Link>
                 </ul>
             )
             : (
                 <ul className={styles.navLinks}>
-                    <Link className={styles.links} to="/">Login</Link>
+                    <Link className={styles.links} to="/login">Login</Link>
                     <Link className={styles.links} to="/registration">Register</Link>
                 </ul>
             )}

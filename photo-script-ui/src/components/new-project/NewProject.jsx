@@ -3,7 +3,7 @@ import styles from './NewProject.module.scss'
 import { FaFileUpload } from 'react-icons/fa' 
 import { MainContext } from '../context/MainContext';
 
-const NewProejct = () => {
+const NewProject = () => {
   
   const {
     image, setImage
@@ -31,6 +31,7 @@ const NewProejct = () => {
 
   return(
     <div className={styles.mainContainer}>
+      <input type="file" className="invisibleUploader" />
       <div
         className={styles.uploadBox}
         onDragOver={dragOverHandler}
@@ -45,4 +46,4 @@ const NewProejct = () => {
   )
 }
 
-export default NewProejct;
+export default NewProject;

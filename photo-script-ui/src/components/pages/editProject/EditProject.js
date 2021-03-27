@@ -84,6 +84,10 @@ function EditProject() {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     const [options, setOptions] = useState(defaultOptions);
     const [showModal, setShowModal] = useState(false);
+        
+    const [isDraggingImage, setIsDraggingImage] = useState(false);
+    const [prevMouseXPos, setPrevMouseXPos] = useState(0)
+    const [prevMouseYPos, setPrevMouseYPos] = useState(0)
 
     const history = useHistory();
     
@@ -227,28 +231,59 @@ function EditProject() {
     }
 
     // dragging feature
-    
-    const [isDraggingImage, setIsDraggingImage] = useState(false);
 
-    const handleImageMouseDown = async (evt) => {
-        const top = evt.target.x;
-        const left = evt.target.y
-        console.log(top)
-        console.log(left)
-        evt.target.style.top = top + "px";
-        console.log(evt.target.style)
-        await setIsDraggingImage(true)
-    }
-    
-    const handleImageMouseMove = evt => {
+    const handleImageMouseMove = e => {
+
         if (isDraggingImage) {
-            evt.preventDefault();
-            console.log('draggin')
+
+            const newMouseXPos = e.clientX;
+            const newMouseYPos = e.clientY;
+            console.log(newMouseXPos)
+
+            // calculate distance mouse moved while 'dragging' element
+
+            const xDif = newMouseXPos - prevMouseXPos;
+            const yDif = newMouseYPos - prevMouseYPos;
+            console.log(xDif)
+
+            // set prev mous x pos
+
+            setPrevMouseXPos(newMouseXPos)
+            setPrevMouseYPos(newMouseYPos)
+
+            // move element same distance mouse moved
+
+            e.target.style.top = e.target.offsetTop + yDif + "px"
+            e.target.style.left = e.target.offsetLeft + xDif + "px"
+            console.log(e.target.style.top)
+
         }
+
+    }
+
+    const handleImageMouseDown = async (e) => {
+
+        // get and set element's current position
+
+        const top = e.target.offsetTop;
+        const left = e.target.offsetLeft;
+
+        // get mouse current position
+
+        setPrevMouseXPos(e.clientX)
+        setPrevMouseYPos(e.clientY)
+
+        // add the mouse move attribute to element
+
+        setIsDraggingImage(true)
+
+        e.target.style.cursor = 'grabbing'
+
     }
     
-    const handleImageMouseUp = evt => {
+    const handleImageMouseUp = e => {
         setIsDraggingImage(false)
+        e.target.style.cursor = 'grab'
     }
     
     // zoom feature
@@ -298,7 +333,7 @@ function EditProject() {
                 <div className={styles.imageContainer}>
                     <div className={styles.imageContainer2} onWheel={handleWheel}>
                         <img
-                            draggable='true'
+                            draggable='false'
                             id="image" alt=""
                             src={image}
                             className={styles.image}

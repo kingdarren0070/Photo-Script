@@ -5,7 +5,6 @@ export const MainContext = createContext();
 export const MainProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [image, setImage] = useState('');
-    const [user, setUser] = useState({});
     
     return (
         <MainContext.Provider value={
@@ -13,9 +12,7 @@ export const MainProvider = ({ children }) => {
                 image,
                 setImage,
                 loggedIn,
-                user,
-                setLoggedIn,
-                setUser
+                setLoggedIn
             }
         }>
             {children}

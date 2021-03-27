@@ -12,7 +12,7 @@ function LoginRegistration() {
         password: ''
     });
 
-    const { setLoggedIn, setUser } = useContext(MainContext);
+    const { setLoggedIn } = useContext(MainContext);
 
     const [error, setError] = useState('');
     const [loading, setLoading] = useState('');
@@ -51,8 +51,8 @@ function LoginRegistration() {
             await axiosCall('post', 'http://localhost:8080/login', credentials)
                 .then((res) => {
                     sessionStorage.setItem('jwt', res.data.jwt);
+                    sessionStorage.setItem('userId', res.data.user.id);
                     setLoggedIn(true);
-                    setUser(res.data.user);
                     setLoading(false);
                     history.push('/library');
                 })

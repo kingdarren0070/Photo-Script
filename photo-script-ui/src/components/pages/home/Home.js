@@ -7,8 +7,9 @@ const Home = () => {
     <div className={styles.mainContainer}>
       <div className={styles.subContainer}>
         <div className={styles.heroHeading}>
-          The Best Photo Editor of 2021
+          The All New Browser-Based Photo Editor of 2021!
         </div>
+        <br />
         <Button urlPath='/new' buttonText="New Project"/>
       </div>
     </div>

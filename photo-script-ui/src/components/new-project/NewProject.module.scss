@@ -1,0 +1,32 @@
+.mainContainer {
+  background-color: #3B3E47;
+  min-height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subContainer {
+  flex-basis: 70%;
+  text-align: center;
+}
+
+.uploadBox {
+  text-align: center;
+  padding: 15vh 10vw;
+  background-color: #525459;
+  border: 2px dashed white;
+}
+
+.uploadBoxHeading {
+  color: white;
+}
+
+.uploadIcon {
+  color: white;
+  font-size: 40px;
+}
+
+// .fileUploader {
+//   // background-color: black;
+// }

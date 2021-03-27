@@ -1,0 +1,21 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.imageContainer {
+    display: table;
+    width: 80%;
+    float: right;
+}
+
+.image {
+    grid-area: image;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    float: right;
+}

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import styles from './NewProject.module.scss'
 import { FaFileUpload } from 'react-icons/fa' 
-import { MainContext } from '../context/MainContext';
+import { MainContext } from '../../context/MainContext';
 
 const NewProject = () => {
   
   const {
-    image, setImage
+    setImage
   } = useContext(MainContext);
 
   const dragOverHandler = e => {
@@ -17,14 +17,17 @@ const NewProject = () => {
   const imageUploadHandler = e => {
     e.preventDefault();
     const file = e.dataTransfer.files[0]
-    console.log(file)
-    console.log(file.type)
-    console.log(file.type.startsWith('image'))
+    const byteArray = [];
     if (file.type.startsWith('image')) {
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
-      reader.onload = () => {
-        console.log(reader.result)
+      reader.onload = (evt) => {
+        if(evt.target.readyState === FileReader.DONE) {
+          const arrayBuffer = evt.target.result;
+          const array = new Uint8Array(arrayBuffer);
+          array.map((byte) => byteArray.push(byte));
+          setImage(byteArray);
+        }
       }
     }
   }

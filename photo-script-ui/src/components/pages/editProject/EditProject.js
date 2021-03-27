@@ -115,9 +115,10 @@ function EditProject() {
                     )
                 })} */}
             </div>
-            <div className={styles.imageContainer}>
+            <img src={image} className={styles.image} />
+            {/* <div className={styles.imageContainer}>
                 <div className={styles.image} style={ getImageStyle() } />
-            </div>
+            </div> */}
         </div>
     )
 }

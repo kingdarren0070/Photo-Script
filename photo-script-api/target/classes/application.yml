@@ -7,7 +7,6 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
   datasource:
     platform: postgres
     url: jdbc:postgresql://35.232.245.179:5432/photo-script

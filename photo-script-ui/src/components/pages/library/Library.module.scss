@@ -22,6 +22,14 @@
     width: 50%;
 }
 
+.image :hover {
+    cursor: pointer;
+}
+
+.imageContainer :hover {
+    cursor: pointer;
+}
+
 .title {
     font-size: 60px;
     margin-top: 3%;

@@ -1,0 +1,13 @@
+.mainContainer {
+  background-color: #eee;
+  overflow: auto;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subContainer {
+  flex-basis: 90%;
+  text-align: center;
+}

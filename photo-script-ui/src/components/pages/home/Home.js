@@ -1,9 +1,17 @@
 import React from 'react';
+import styles from './Home.module.scss';
 
 const Home = () => {
   return(
-    <div>
-      Home
+    <div className={styles.mainContainer}>
+      <div className={styles.subContainer}>
+        <div>
+          Heading text
+        </div>
+        <button>
+          New
+        </button>
+      </div>
     </div>
   )
 }

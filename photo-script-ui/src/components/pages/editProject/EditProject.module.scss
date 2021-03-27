@@ -14,9 +14,7 @@ body {
 
 .image {
     grid-area: image;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    background-repeat: no-repeat;
-    float: right;
-    filter: brightness(20%);
+    filter: saturate(0%);
 }

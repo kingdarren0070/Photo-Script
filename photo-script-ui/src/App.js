@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
-import ImageUploading from 'react-images-uploading';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './components/pages/home/Home';
 
 function App() {
-  return ();
+  return(
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Router>
+  )
 }
 
 export default App;

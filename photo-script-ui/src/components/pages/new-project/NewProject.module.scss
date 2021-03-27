@@ -9,24 +9,28 @@
 .subContainer {
   flex-basis: 70%;
   text-align: center;
+  display: inline-block;
 }
 
-.uploadBox {
-  text-align: center;
-  padding: 15vh 10vw;
+.uploadBoxDropZone {
+  padding: 40px;
   background-color: #525459;
-  border: 2px dashed white;
+  border: 2px dashed gray;
+  display: block;
 }
 
-.uploadBoxHeading {
+.uploadBoxDropZoneHeading {
   color: white;
 }
 
-.uploadIcon {
+.uploadBoxDropZoneIcon {
   color: white;
   font-size: 40px;
 }
 
-// .fileUploader {
-//   // background-color: black;
-// }
+.uploadButton {
+  margin-top: 40px;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+}

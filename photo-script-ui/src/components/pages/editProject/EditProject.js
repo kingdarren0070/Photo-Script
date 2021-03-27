@@ -115,7 +115,9 @@ function EditProject() {
         let ctx = canvas.getContext('2d');
         ctx.filter = getFiltersToString();
         let image = document.getElementById("image");
-        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        canvas.width = image.width;
+        canvas.height = image.height;
+        ctx.drawImage(image, 0, 0, image.width, image.height);
         let dt = canvas.toDataURL('image/png');
         let element = document.createElement('a');
         element.setAttribute('href', dt);
@@ -132,7 +134,9 @@ function EditProject() {
             let ctx = canvas.getContext('2d');
             ctx.filter = getFiltersToString();
             let image = document.getElementById("image");
-            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            canvas.width = image.width;
+            canvas.height = image.height;
+            ctx.drawImage(image, 0, 0, image.width, image.height);
             let dt = canvas.toDataURL('image/png');
 
             const newSave = {

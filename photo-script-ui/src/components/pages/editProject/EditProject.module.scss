@@ -10,28 +10,90 @@ body {
     display: flex;
     justify-content: space-evenly;
     min-width: 100vw;
+    min-height: 78vh;
+    background-color: var(--color-dark-grey);
 }
 
 .sideBar {
     max-width: 20%;
     min-width: 20%;
     display: inline;
+    background: #242834;
 }
 
 .imageContainer {
     justify-self: flex-end;
     display: table;
     width: 80%;
+    height: 78vh;
     float: right;
 }
 
+.imageContainer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 78vh;
+}
+
 .image {
-    display: table;
+    display: block;
     margin: auto;
     grid-area: image;
-    // height: 80vh;
-    // width: 80vw;
-    max-height: 100vh;
+    max-height: 78vh;
     max-width: 80vw;
-    filter: saturate(0%);
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    max-height: 10vh;
+    background: #242834;
+    color: var(--color-text);
+    position: sticky;
+    width: 100%;
+}
+
+.navLinks1 {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    color: var(--color-text);
+    margin-left: 5%;
+}
+
+.navLinks2 {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    color: var(--color-text);
+    margin-left: 30%;
+}
+
+.navLinks1 :hover {
+    text-decoration-color: var(--color-underline);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.navLinks2 :hover {
+    text-decoration-color: var(--color-underline);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.links {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.links :hover {
+    text-decoration-color: var(--color-underline);
+    text-decoration: underline;
+    cursor: pointer;
 }

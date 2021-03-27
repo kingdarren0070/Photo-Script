@@ -1,6 +1,6 @@
 .mainContainer {
   background-color: var(--color-dark-grey);
-  min-height: 88vh;
+  min-height: 78vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,4 +33,35 @@
   background-color: var(--color-button-background);
   color: var(--color-text);
   padding: 10px 20px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+  max-height: 10vh;
+  background: #242834;
+  color: var(--color-text);
+  position: sticky;
+  width: 100%;
+}
+
+.navLinks {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: var(--color-text);
+  margin-left: 24%;
+}
+
+.navLinks :hover {
+  text-decoration-color: var(--color-underline);
+  text-decoration: underline;
+}
+
+.links {
+  color: var(--color-text);
+  text-decoration: none;
 }

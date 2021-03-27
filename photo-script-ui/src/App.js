@@ -5,6 +5,7 @@ import EditProject from './components/pages/editProject/EditProject';
 import Home from './components/pages/home/Home';
 import LoginRegistration from './components/pages/loginRegistration/LoginRegistration';
 import NewProject from './components/pages/new-project/NewProject';
+import Library from './components/pages/library/Library';
 
 function App() {
   return(
@@ -17,6 +18,8 @@ function App() {
           <Route exact path="/login" component={LoginRegistration} />
           <Route exact path="/registration" component={LoginRegistration} />
           <Route exact path="/edit" component={EditProject} />
+          <Route exact path="/edit/:id" component={EditProject} />
+          <Route exact path="/library" component={Library} />
         </Switch>
       </Router>
     </div>

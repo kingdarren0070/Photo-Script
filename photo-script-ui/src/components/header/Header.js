@@ -4,7 +4,7 @@ import { MainContext } from '../context/MainContext';
 import styles from './Header.module.scss';
 
 function Header () {
-    const {loggedIn, setLoggedIn, user} = useContext(MainContext);
+    const {loggedIn, setLoggedIn} = useContext(MainContext);
 
     const handleLogout = () => {
         setLoggedIn(false);
@@ -17,7 +17,7 @@ function Header () {
             {loggedIn
             ? (
                 <ul className={styles.navLinks}>
-                    <NavLink className={styles.links} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${user.id}`}>Profile</NavLink>
+                    <NavLink className={styles.links} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${sessionStorage.getItem("userId")}`}>Profile</NavLink>
                     <Link className={styles.links} to="/" onClick={handleLogout}>Logout</Link>
                 </ul>
             )

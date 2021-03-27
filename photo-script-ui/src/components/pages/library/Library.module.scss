@@ -35,9 +35,10 @@
     margin-top: 3%;
     padding-top: 3%;
     margin-top: 0%;
-    color: white;
     font-weight: bold;
     margin-left: 6vw;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+    color: transparent;
 }
 
 .mainContainer {
@@ -87,4 +88,10 @@
     text-decoration-color: var(--color-underline);
     text-decoration: underline;
     cursor: pointer;
+}
+
+.noContent {
+    text-align: center;
+    font-size: 50px;
+    color: white;
 }

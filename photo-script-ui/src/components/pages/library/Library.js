@@ -9,6 +9,7 @@ function Library () {
     const { setImage } = useContext(MainContext);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [notice, setNotice] = useState(false);
 
     const history = useHistory();
 
@@ -19,10 +20,18 @@ function Library () {
                 .then((res) => {
                     setImages(res.data)
                     setLoading(false)
+                })
+                .catch(() => {
+                    setNotice("No Images Found!")
                 });
         }
 
-        getImages();
+        if(sessionStorage.getItem("userId")) {
+            getImages();
+        } else {
+            setNotice("You must be logged in to save images to your library");
+            setLoading(false);
+        }
     }, []);
 
     const handleClick = (imgData, id) => {
@@ -45,13 +54,11 @@ function Library () {
                 <div className={styles.titleContainer}>
                     <p className={styles.title}>Your Library</p>
                 </div>
+                {notice && <p className={styles.noContent}>{notice}</p>}
                 {loading ? <LoadingSpinner />
                 :
                     <div className={styles.imageContainer}>
-                        {images.length !== 0 ? images.map((image) => (<img className={styles.image} src={image.imgData} alt="" onClick={() => handleClick(image.imgData, image.id)}/>))
-                        :
-                        <p className={styles.noContent}>No Images Found!</p>
-                        }
+                        {images.length !== 0 && images.map((image) => (<img className={styles.image} src={image.imgData} alt="" onClick={() => handleClick(image.imgData, image.id)}/>))}
                     </div>
                 }
             </div>

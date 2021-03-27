@@ -143,7 +143,7 @@ function EditProject() {
             canvas.height = image.height;
             let ctx = canvas.getContext('2d');
             ctx.filter = getFiltersToString();
-            ctx.drawImage(image, 0, 0, image.width, image.height);
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
             let dt = canvas.toDataURL('image/png');
 
             if(id) {
@@ -198,18 +198,18 @@ function EditProject() {
         await setMouseUpXCoords(evt.nativeEvent.offsetX)
         console.log(evt.nativeEvent.offsetY)
         await setMouseUpYCoords(evt.nativeEvent.offsetY)
-        await createRectangle();
+        // await createRectangle();
     }
 
     const createRectangle = () => {
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext('2d');
         let image = document.getElementById("image");
-        canvas.setAttribute('width', image.getAttribute('width'))
-        canvas.setAttribute('width', image.getAttribute('height'))
+        canvas.setAttribute('width', image.width)
+        canvas.setAttribute('width', image.height)
         canvas.setAttribute('border', '1px solid black')
         ctx.beginPath()
-        ctx.rect(0, 0, 25, 25)
+        ctx.rect(0, 0, 50, 50)
         ctx.stroke()
         console.log('rectangle drawn')
     }
@@ -248,9 +248,10 @@ function EditProject() {
                     className={styles.imageContainer}
                     onMouseDown={handleShapeMouseDown}
                     onMouseUp={handleShapeMouseUp}
+                    onWheel={(e) => console.log(e)}
                 >
                     <div className={styles.imageContainer2}>
-                        <canvas id="canvas" />
+                        {/* <canvas id="canvas" /> */}
                         <img draggable='false' id="image" alt="" src={image} className={styles.image} style={getImageStyle()}/>
                     </div>
                 </div>

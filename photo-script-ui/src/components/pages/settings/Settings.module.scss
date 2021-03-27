@@ -22,6 +22,7 @@
 }
 
 .formHeading {
+  color: #eee;
   padding-bottom: 0.5rem;
   font-size: 25px;
   margin: 0.25rem;
@@ -29,9 +30,20 @@
 }
 
 .formButton {
+  padding: 0.5rem;
   height: 40px;
   display: table;
-  margin: auto;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.formButton:hover {
+  cursor: pointer;
+}
+
+.formButton:active {
+  background-color: #c2c1c1;
+  cursor: pointer;
 }
 
 .error {

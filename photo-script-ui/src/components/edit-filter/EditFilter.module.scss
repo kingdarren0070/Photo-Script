@@ -3,6 +3,12 @@
     color: white;
 }
 
+.nameContainer :hover {
+    text-decoration-color: var(--color-underline);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .nameContainer {
     text-align: center;
 }

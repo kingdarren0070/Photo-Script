@@ -14,10 +14,8 @@ public class Image {
   @NotNull
   private Long userId;
 
+  @Lob
   @NotBlank
-  private String imgName;
-
-  @NotNull
   private String imgData;
 
   public Image() {
@@ -26,7 +24,6 @@ public class Image {
   public Image(@NotNull Long userId, @NotBlank String imgName,
       @NotBlank String imgData) {
     this.userId = userId;
-    this.imgName = imgName;
     this.imgData = imgData;
   }
 
@@ -46,14 +43,6 @@ public class Image {
     this.userId = userId;
   }
 
-  public String getImgName() {
-    return imgName;
-  }
-
-  public void setImgName(String imgName) {
-    this.imgName = imgName;
-  }
-
   public String getImgData() {
     return imgData;
   }
@@ -67,7 +56,6 @@ public class Image {
     return "Image{" +
         "id=" + id +
         ", userId=" + userId +
-        ", imgName='" + imgName + '\'' +
         ", imgData='" + imgData + '\'' +
         '}';
   }

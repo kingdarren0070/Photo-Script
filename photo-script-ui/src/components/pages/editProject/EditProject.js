@@ -96,8 +96,9 @@ function EditProject() {
         })
 
         return {
-            backgroundImage: `url("${image}")`, 
-            filter: filters.join(' ') }
+            backgroundImage: `url(${image})`, 
+            filter: filters.join(' ')
+        }
     }
 
     return (
@@ -114,7 +115,9 @@ function EditProject() {
                     )
                 })} */}
             </div>
-            <div className={styles.image} style={ getImageStyle() } />
+            <div className={styles.imageContainer}>
+                <div className={styles.image} style={ getImageStyle() } />
+            </div>
         </div>
     )
 }

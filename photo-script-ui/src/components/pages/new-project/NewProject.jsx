@@ -28,6 +28,7 @@ const NewProject = () => {
       reader.onload = (evt) => {
         if(evt.target.readyState === FileReader.DONE) {
           setImage(evt.target.result);
+          history.push('/edit');
         }
       }
     }
@@ -42,8 +43,9 @@ const NewProject = () => {
     if (file.type.startsWith('image')) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = () => {
+      reader.onload = (evt) => {
         console.log(reader.result)
+        setImage(evt.target.result);
         history.push('/edit');
       }
     } else {

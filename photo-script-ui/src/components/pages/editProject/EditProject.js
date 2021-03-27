@@ -139,7 +139,7 @@ function EditProject() {
             canvas.height = image.height;
             let ctx = canvas.getContext('2d');
             ctx.filter = getFiltersToString();
-            ctx.drawImage(image, 0, 0, image.width, image.height);
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
             let dt = canvas.toDataURL('image/png');
 
             if(id) {

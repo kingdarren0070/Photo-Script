@@ -14,12 +14,25 @@
 
 .formHeading {
     font-size: 30px;
+    color: white;
 }
 
 .formButton {
     height: 40px;
     display: table;
     margin: auto;
+    background: var(--color-button-background);
+    color: white;
+    border: none;
+    margin-top: 5%;
+}
+
+.buttonContainer :hover {
+    cursor: pointer;
+}
+
+.formButton :hover {
+    cursor: pointer;
 }
 
 .error {

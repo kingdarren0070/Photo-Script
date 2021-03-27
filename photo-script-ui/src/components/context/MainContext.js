@@ -4,11 +4,15 @@ export const MainContext = createContext();
 
 export const MainProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(false);
+    const [user, setUser] = useState({});
     
     return (
         <MainContext.Provider value={
             {
-                loggedIn, setLoggedIn
+                loggedIn,
+                user,
+                setLoggedIn,
+                setUser
             }
         }>
             {children}

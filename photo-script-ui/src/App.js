@@ -4,9 +4,10 @@ import NavBar from './components/header/Header';
 import Home from './components/pages/home/Home';
 import LoginRegistration from './components/pages/loginRegistration/LoginRegistration';
 import NewProject from './components/pages/new-project/NewProject';
+import Settings from './components/pages/settings/Settings';
 
 function App() {
-  return(
+  return (
     <div className="App">
       <Router>
         <NavBar />
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/new" component={NewProject} />
           <Route exact path="/login" component={LoginRegistration} />
           <Route exact path="/registration" component={LoginRegistration} />
+          <Route path="/settings" component={Settings} />
         </Switch>
       </Router>
     </div>

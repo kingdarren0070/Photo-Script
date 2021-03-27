@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import styles from './NewProject.module.scss'
-import { FaFileUpload } from 'react-icons/fa' 
+import { FaFileUpload } from 'react-icons/fa'
 import { MainContext } from '../../context/MainContext';
 
 const NewProject = () => {
-  
+
   const {
     setImage
   } = useContext(MainContext);
@@ -25,7 +25,7 @@ const NewProject = () => {
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
       reader.onload = (evt) => {
-        if(evt.target.readyState === FileReader.DONE) {
+        if (evt.target.readyState === FileReader.DONE) {
           const arrayBuffer = evt.target.result;
           const array = new Uint8Array(arrayBuffer);
           array.map((byte) => byteArray.push(byte));
@@ -52,7 +52,7 @@ const NewProject = () => {
     }
   }
 
-  return(
+  return (
     <div className={styles.mainContainer}>
       <div className={styles.subContainer}>
         {error && 'Error'}
@@ -64,9 +64,9 @@ const NewProject = () => {
           <h4 className={styles.uploadBoxDropZoneHeading}>
             Upload your image here
           </h4>
-          <FaFileUpload className={styles.uploadBoxDropZoneIcon}/>
+          <FaFileUpload className={styles.uploadBoxDropZoneIcon} />
         </div>
-        <div style={{marginTop:'50px'}}>
+        <div style={{ marginTop: '50px' }}>
           <label
             htmlFor="uploadButton"
             className={styles.uploadButton}

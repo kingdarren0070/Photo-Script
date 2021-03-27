@@ -1,0 +1,39 @@
+.links:active {
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: #c2c1c1;
+}
+
+.links {
+  color: #eee;
+  text-decoration: none;
+}
+
+.formInput {
+  margin-left: 1rem;
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 15px 20px;
+  border: thin black solid;
+  width: 60%;
+}
+
+.formHeading {
+  padding-bottom: 0.5rem;
+  font-size: 25px;
+  margin: 0.25rem;
+  margin-left: 1rem;
+}
+
+.formButton {
+  height: 40px;
+  display: table;
+  margin: auto;
+}
+
+.error {
+  color: red;
+}

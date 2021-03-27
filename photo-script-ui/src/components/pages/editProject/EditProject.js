@@ -4,6 +4,7 @@ import { axiosCall } from '../../../utils/axiosCall';
 import { MainContext } from '../../context/MainContext';
 import EditFilter from '../../edit-filter/EditFilter';
 import styles from './EditProject.module.scss';
+import Modal from '../../modal/Modal';
 
 const defaultOptions = [
     {
@@ -82,6 +83,7 @@ function EditProject() {
     const { image, loggedIn } = useContext(MainContext);
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     const [options, setOptions] = useState(defaultOptions);
+    const [showModal, setShowModal] = useState(false);
 
     const history = useHistory();
     
@@ -200,7 +202,16 @@ function EditProject() {
         }
     }
 
+    const openDeleteModal = () => {
+        setShowModal(true);
+    }
+
+    const handleNoDelete = () => {
+        setShowModal(false);
+    }
+
     const handleDelete = () => {
+        setShowModal(false);
         if(id) {
             const deleteImage = async () => {
                 await axiosCall('delete', `http://localhost:8080/images/${id}`)
@@ -258,9 +269,9 @@ function EditProject() {
                 <ul className={styles.navLinks1}>
                     <Link className={styles.links} to="/new">New</Link>
                     <p className={styles.links} onClick={handleDownload}>Download</p>
-                    <p className={styles.links} onClick={handleSave}>Save</p>
-                    <p className={styles.links} onClick={handleCopy}>Save Copy</p>
-                    <p className={styles.links} onClick={handleDelete}>Delete</p>
+                    {loggedIn && <p className={styles.links} onClick={handleSave}>Save</p>}
+                    {loggedIn && <p className={styles.links} onClick={handleCopy}>Save Copy</p>}
+                    {loggedIn && <p className={styles.links} onClick={openDeleteModal}>Delete</p>}
                 </ul>
                 <ul className={styles.navLinks2}>
                   <Link className={styles.links} to="/library">Library</Link>
@@ -299,6 +310,12 @@ function EditProject() {
                     </div>
                 </div>
             </div>
+            <Modal
+                message="Are you sure you want to delete this image?"
+                yesHandler={handleDelete}
+                noHandler={handleNoDelete}
+                open={showModal}
+            />
         </div>
     )
 }

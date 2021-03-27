@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { MainContext } from '../../context/MainContext';
+import EditFilter from '../../edit-filter/EditFilter';
 import styles from './EditProject.module.scss';
 
 const defaultOptions = [
@@ -101,6 +102,11 @@ function EditProject() {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.sideBar}>
+                {
+                    defaultOptions.map(filter => (
+                        <EditFilter />
+                    ))
+                }
             </div>
             <div className={styles.imageContainer}>
                 <img src={image} className={styles.image} style={getImageStyle()}/>

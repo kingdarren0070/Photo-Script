@@ -1,10 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { MainContext } from '../context/MainContext';
 import styles from './Header.module.scss';
 
 function Header () {
     const {loggedIn, setLoggedIn} = useContext(MainContext);
+
+    useEffect(() => {
+        if(sessionStorage.getItem('jwt')) {
+            setLoggedIn(true);
+        } else {
+            setLoggedIn(false);
+        }
+    }, [])
 
     const handleLogout = () => {
         setLoggedIn(false);

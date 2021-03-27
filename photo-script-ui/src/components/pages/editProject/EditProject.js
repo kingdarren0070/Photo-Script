@@ -175,6 +175,46 @@ function EditProject() {
         }
     }
 
+    const handleCopy = () => {
+        if (loggedIn) {
+            let canvas = document.createElement("canvas");
+            let image = document.getElementById("image");
+            canvas.width = image.width;
+            canvas.height = image.height;
+            let ctx = canvas.getContext('2d');
+            ctx.filter = getFiltersToString();
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            let dt = canvas.toDataURL('image/png');
+
+            const newSave = {
+                userId: sessionStorage.getItem("userId"),
+                imgData: dt
+            }
+
+            const saveImage = async () => {
+                await axiosCall('post', 'http://localhost:8080/images', newSave)
+                    .then(() => history.push('/library'));
+            }
+    
+            saveImage();
+        }
+    }
+
+    const handleDelete = () => {
+        if(id) {
+            const deleteImage = async () => {
+                await axiosCall('delete', `http://localhost:8080/images/${id}`)
+                    .then(() => history.push('/library'));
+            }
+
+            deleteImage();
+        } else if (loggedIn) {
+            history.push('/library');
+        } else {
+            history.push('/new');
+        }
+    }
+
     // creating shapes
 
     const [mouseDownXCoords, setMouseDownXCoords] = useState(0);
@@ -235,6 +275,8 @@ function EditProject() {
                     <Link className={styles.links} to="/new">New</Link>
                     <p className={styles.links} onClick={handleDownload}>Download</p>
                     <p className={styles.links} onClick={handleSave}>Save</p>
+                    <p className={styles.links} onClick={handleCopy}>Save Copy</p>
+                    <p className={styles.links} onClick={handleDelete}>Delete</p>
                 </ul>
                 <ul className={styles.navLinks2}>
                   <Link className={styles.links} to="/library">Library</Link>

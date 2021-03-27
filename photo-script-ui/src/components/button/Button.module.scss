@@ -1,0 +1,13 @@
+.mainContainer {
+  background-color: #070b17;
+  color: white;
+  border: 1px solid #070b17;
+  border-radius: 5px;
+  padding: 12px 40px;
+  font-size: large;
+}
+
+.mainContainer:hover {
+  background-color: black;
+  cursor: pointer;
+}

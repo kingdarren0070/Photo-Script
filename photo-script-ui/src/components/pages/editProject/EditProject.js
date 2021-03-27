@@ -214,6 +214,20 @@ function EditProject() {
         console.log('rectangle drawn')
     }
 
+    // zoom feature
+
+    const handleWheel = (evt) => {
+        const image = document.getElementById('image')
+        if (evt.deltaY < 0) {
+            image.width = (image.width * .96)
+        }
+        if (evt.deltaY > 0) {
+            // if (image.height > '90vh') {
+                image.width = (image.width * 1.04)
+            // }
+        }
+    }
+
     return (
         <div>
             <nav className={styles.bar}>
@@ -248,9 +262,9 @@ function EditProject() {
                     className={styles.imageContainer}
                     onMouseDown={handleShapeMouseDown}
                     onMouseUp={handleShapeMouseUp}
-                    onWheel={(e) => console.log(e)}
+                    // onWheel={handleWheel}
                 >
-                    <div className={styles.imageContainer2}>
+                    <div className={styles.imageContainer2} onWheel={handleWheel}>
                         {/* <canvas id="canvas" /> */}
                         <img draggable='false' id="image" alt="" src={image} className={styles.image} style={getImageStyle()}/>
                     </div>

@@ -37,11 +37,15 @@ body {
 }
 
 .image {
-    display: block;
-    margin: auto;
-    grid-area: image;
-    max-height: 78vh;
-    max-width: 80vw;
+    // display: block;
+    // margin: auto;
+    // grid-area: image;
+    // max-height: 78vh;
+    // max-width: 80vw;
+    object-fit: contain;
+    overflow: auto;
+    z-index: 0;
+    position: absolute;
 }
 
 .bar {

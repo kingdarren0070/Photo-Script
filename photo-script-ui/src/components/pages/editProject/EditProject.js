@@ -84,6 +84,10 @@ function EditProject() {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     const [options, setOptions] = useState(defaultOptions);
     const [showModal, setShowModal] = useState(false);
+        
+    const [isDraggingImage, setIsDraggingImage] = useState(false);
+    const [prevMouseXPos, setPrevMouseXPos] = useState(0)
+    const [prevMouseYPos, setPrevMouseYPos] = useState(0)
 
     const history = useHistory();
     
@@ -226,45 +230,62 @@ function EditProject() {
         }
     }
 
-    // creating shapes
+    // dragging feature
 
-    const [mouseDownXCoords, setMouseDownXCoords] = useState(0);
-    const [mouseDownYCoords, setMouseDownYCoords] = useState(0);
-    const [mouseUpXCoords, setMouseUpXCoords] = useState(0);
-    const [mouseUpYCoords, setMouseUpYCoords] = useState(0);
+    const handleImageMouseMove = e => {
 
-    const handleShapeMouseDown = async evt => {
-        // console.log(evt)
-        // console.log(evt.nativeEvent)
-        console.log(evt.nativeEvent.offsetX)
-        await setMouseDownXCoords(evt.nativeEvent.offsetX)
-        console.log(evt.nativeEvent.offsetY)
-        await setMouseDownYCoords(evt.nativeEvent.offsetY)
+        if (isDraggingImage) {
+
+            const newMouseXPos = e.clientX;
+            const newMouseYPos = e.clientY;
+            console.log(newMouseXPos)
+
+            // calculate distance mouse moved while 'dragging' element
+
+            const xDif = newMouseXPos - prevMouseXPos;
+            const yDif = newMouseYPos - prevMouseYPos;
+            console.log(xDif)
+
+            // set prev mous x pos
+
+            setPrevMouseXPos(newMouseXPos)
+            setPrevMouseYPos(newMouseYPos)
+
+            // move element same distance mouse moved
+
+            e.target.style.top = e.target.offsetTop + yDif + "px"
+            e.target.style.left = e.target.offsetLeft + xDif + "px"
+            console.log(e.target.style.top)
+
+        }
+
     }
 
-    const handleShapeMouseUp = async evt => {
-        // console.log(evt)
-        // console.log(evt.nativeEvent)
-        console.log(evt.nativeEvent.offsetX)
-        await setMouseUpXCoords(evt.nativeEvent.offsetX)
-        console.log(evt.nativeEvent.offsetY)
-        await setMouseUpYCoords(evt.nativeEvent.offsetY)
-        // await createRectangle();
-    }
+    const handleImageMouseDown = async (e) => {
 
-    const createRectangle = () => {
-        let canvas = document.getElementById("canvas");
-        let ctx = canvas.getContext('2d');
-        let image = document.getElementById("image");
-        canvas.setAttribute('width', image.width)
-        canvas.setAttribute('width', image.height)
-        canvas.setAttribute('border', '1px solid black')
-        ctx.beginPath()
-        ctx.rect(0, 0, 50, 50)
-        ctx.stroke()
-        console.log('rectangle drawn')
-    }
+        // get and set element's current position
 
+        const top = e.target.offsetTop;
+        const left = e.target.offsetLeft;
+
+        // get mouse current position
+
+        setPrevMouseXPos(e.clientX)
+        setPrevMouseYPos(e.clientY)
+
+        // add the mouse move attribute to element
+
+        setIsDraggingImage(true)
+
+        e.target.style.cursor = 'grabbing'
+
+    }
+    
+    const handleImageMouseUp = e => {
+        setIsDraggingImage(false)
+        e.target.style.cursor = 'grab'
+    }
+    
     // zoom feature
 
     const handleWheel = (evt) => {
@@ -273,9 +294,7 @@ function EditProject() {
             image.width = (image.width * .96)
         }
         if (evt.deltaY > 0) {
-            // if (image.height > '90vh') {
-                image.width = (image.width * 1.04)
-            // }
+            image.width = (image.width * 1.04)
         }
     }
 
@@ -311,21 +330,17 @@ function EditProject() {
                         ))
                     }
                 </div>
-                <div
-                    className={styles.imageContainer}
-                    // onMouseDown={handleShapeMouseDown}
-                    // onMouseUp={handleShapeMouseUp}
-                    // onWheel={handleWheel}
-                >
+                <div className={styles.imageContainer}>
                     <div className={styles.imageContainer2} onWheel={handleWheel}>
-                        {/* <canvas id="canvas" /> */}
                         <img
                             draggable='false'
                             id="image" alt=""
                             src={image}
                             className={styles.image}
                             style={getImageStyle()}
-                            onMouseDown={e => console.log(e.target.x)}
+                            onMouseDown={handleImageMouseDown}
+                            onMouseUp={handleImageMouseUp}
+                            onMouseMove={handleImageMouseMove}
                         />
                     </div>
                 </div>

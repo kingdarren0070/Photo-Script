@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styles from './NewProject.module.scss'
 import { FaFileUpload } from 'react-icons/fa' 
 import { MainContext } from '../../context/MainContext';
@@ -54,33 +54,41 @@ const NewProject = () => {
   }
 
   return(
-    <div className={styles.mainContainer}>
-      <div className={styles.subContainer}>
-        {error && 'Error'}
-        <div
-          className={styles.uploadBoxDropZone}
-          onDragOver={dragOverHandler}
-          onDrop={onDropHandler}
-        >
-          <h4 className={styles.uploadBoxDropZoneHeading}>
-            Upload your image here
-          </h4>
-          <FaFileUpload className={styles.uploadBoxDropZoneIcon}/>
-        </div>
-        <div style={{marginTop:'50px'}}>
-          <label
-            htmlFor="uploadButton"
-            className={styles.uploadButton}
+    <div>
+      <nav className={styles.bar}>
+        <ul className={styles.navLinks}>
+          <Link className={styles.links} to="/library">Library</Link>
+          <Link className={styles.links} to="/settings">Settings</Link>
+        </ul>
+      </nav>
+      <div className={styles.mainContainer}>
+        <div className={styles.subContainer}>
+          {error && 'Error'}
+          <div
+            className={styles.uploadBoxDropZone}
+            onDragOver={dragOverHandler}
+            onDrop={onDropHandler}
           >
-            Upload Your File Here
-          </label>
-          <input
-            accept="image/*"
-            id="uploadButton"
-            type="file"
-            hidden
-            onChange={onImageUploadHandler}
-          />
+            <h4 className={styles.uploadBoxDropZoneHeading}>
+              Upload your image here
+            </h4>
+            <FaFileUpload className={styles.uploadBoxDropZoneIcon}/>
+          </div>
+          <div style={{marginTop:'50px'}}>
+            <label
+              htmlFor="uploadButton"
+              className={styles.uploadButton}
+            >
+              Upload Your File Here
+            </label>
+            <input
+              accept="image/*"
+              id="uploadButton"
+              type="file"
+              hidden
+              onChange={onImageUploadHandler}
+            />
+          </div>
         </div>
       </div>
     </div>

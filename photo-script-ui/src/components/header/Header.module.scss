@@ -1,0 +1,33 @@
+.bar {
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    background: #070B17;
+    color: white;
+    position: fixed;
+    width: 100%;
+}
+
+.title {
+    display: block;
+    margin-left: 8%;
+}
+
+.navLinks {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    color: white;
+    margin-left: 50%;
+}
+
+.navLinks :hover {
+    text-decoration: underline;
+}
+
+.links {
+    color: white;
+    text-decoration: none;
+}

@@ -1,7 +1,8 @@
 .mainContainer {
-  background-color: #eee;
+  // background-color: #eee;
+  background-image: url(../../images/backgroundImage.png);
   overflow: auto;
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,4 +12,12 @@
 .subContainer {
   flex-basis: 90%;
   text-align: center;
+}
+
+.heroHeading {
+  font-size: 70px;
+  text-shadow: 5px 5px 2px black;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 50px;
 }

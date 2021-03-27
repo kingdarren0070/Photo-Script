@@ -84,6 +84,8 @@ function EditProject() {
     const [options, setOptions] = useState(defaultOptions);
 
     const history = useHistory();
+    
+    // filtering
 
     const { id } = useParams();
 
@@ -112,6 +114,8 @@ function EditProject() {
         console.log(filters.join(' '));
         return(filters.join(' '))
     }
+
+    // saving and downloading
 
     const handleDownload = () => {
         let canvas = document.createElement("canvas");
@@ -171,6 +175,59 @@ function EditProject() {
         }
     }
 
+    // creating shapes
+
+    const [mouseDownXCoords, setMouseDownXCoords] = useState(0);
+    const [mouseDownYCoords, setMouseDownYCoords] = useState(0);
+    const [mouseUpXCoords, setMouseUpXCoords] = useState(0);
+    const [mouseUpYCoords, setMouseUpYCoords] = useState(0);
+
+    const handleShapeMouseDown = async evt => {
+        // console.log(evt)
+        // console.log(evt.nativeEvent)
+        console.log(evt.nativeEvent.offsetX)
+        await setMouseDownXCoords(evt.nativeEvent.offsetX)
+        console.log(evt.nativeEvent.offsetY)
+        await setMouseDownYCoords(evt.nativeEvent.offsetY)
+    }
+
+    const handleShapeMouseUp = async evt => {
+        // console.log(evt)
+        // console.log(evt.nativeEvent)
+        console.log(evt.nativeEvent.offsetX)
+        await setMouseUpXCoords(evt.nativeEvent.offsetX)
+        console.log(evt.nativeEvent.offsetY)
+        await setMouseUpYCoords(evt.nativeEvent.offsetY)
+        // await createRectangle();
+    }
+
+    const createRectangle = () => {
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext('2d');
+        let image = document.getElementById("image");
+        canvas.setAttribute('width', image.width)
+        canvas.setAttribute('width', image.height)
+        canvas.setAttribute('border', '1px solid black')
+        ctx.beginPath()
+        ctx.rect(0, 0, 50, 50)
+        ctx.stroke()
+        console.log('rectangle drawn')
+    }
+
+    // zoom feature
+
+    const handleWheel = (evt) => {
+        const image = document.getElementById('image')
+        if (evt.deltaY < 0) {
+            image.width = (image.width * .96)
+        }
+        if (evt.deltaY > 0) {
+            // if (image.height > '90vh') {
+                image.width = (image.width * 1.04)
+            // }
+        }
+    }
+
     return (
         <div>
             <nav className={styles.bar}>
@@ -201,9 +258,22 @@ function EditProject() {
                         ))
                     }
                 </div>
-                <div className={styles.imageContainer}>
-                    <div className={styles.imageContainer2}>
-                        <img id="image" alt="" src={image} className={styles.image} style={getImageStyle()}/>
+                <div
+                    className={styles.imageContainer}
+                    // onMouseDown={handleShapeMouseDown}
+                    // onMouseUp={handleShapeMouseUp}
+                    // onWheel={handleWheel}
+                >
+                    <div className={styles.imageContainer2} onWheel={handleWheel}>
+                        {/* <canvas id="canvas" /> */}
+                        <img
+                            draggable='false'
+                            id="image" alt=""
+                            src={image}
+                            className={styles.image}
+                            style={getImageStyle()}
+                            onMouseDown={e => console.log(e.target.x)}
+                        />
                     </div>
                 </div>
             </div>

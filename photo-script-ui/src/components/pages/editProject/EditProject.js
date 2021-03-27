@@ -92,31 +92,18 @@ function EditProject() {
 
     function getImageStyle() {
         const filters = options.map(option => {
-            return `${option.property}(${option.value})${option.unit})`
+            return `${option.property}(${option.value}${option.unit})`
         })
-
-        return {
-            backgroundImage: `url(${image})`, 
-            filter: filters.join(' ')
-        }
+    
+        return { filter: filters.join(' ') }
     }
 
     return (
         <div className={styles.mainContainer}>
             <div className={styles.sideBar}>
-                {/* {defaultOptions.map((option, index) => {
-                    return (
-                        <SidebarItem
-                            key={index}
-                            name={option.name}
-                            active={index === selectedOptionIndex}
-                            handleClick={() => setSelectedOptionIndex(index)}
-                        />
-                    )
-                })} */}
             </div>
             <div className={styles.imageContainer}>
-                <div className={styles.image} style={ getImageStyle() } />
+                <img src={image} className={styles.image} style={getImageStyle()}/>
             </div>
         </div>
     )

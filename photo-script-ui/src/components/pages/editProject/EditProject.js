@@ -84,6 +84,8 @@ function EditProject() {
     const [options, setOptions] = useState(defaultOptions);
 
     const history = useHistory();
+    
+    // filtering
 
     const handleChange = (e) => {
         setOptions(prevOptions => {
@@ -109,6 +111,8 @@ function EditProject() {
 
         return(filters.join(' '))
     }
+
+    // saving and downloading
 
     const handleDownload = () => {
         let canvas = document.createElement("canvas");
@@ -153,6 +157,45 @@ function EditProject() {
         }
     }
 
+    // creating shapes
+
+    const [mouseDownXCoords, setMouseDownXCoords] = useState(0);
+    const [mouseDownYCoords, setMouseDownYCoords] = useState(0);
+    const [mouseUpXCoords, setMouseUpXCoords] = useState(0);
+    const [mouseUpYCoords, setMouseUpYCoords] = useState(0);
+
+    const handleShapeMouseDown = async evt => {
+        // console.log(evt)
+        // console.log(evt.nativeEvent)
+        console.log(evt.nativeEvent.offsetX)
+        await setMouseDownXCoords(evt.nativeEvent.offsetX)
+        console.log(evt.nativeEvent.offsetY)
+        await setMouseDownYCoords(evt.nativeEvent.offsetY)
+    }
+
+    const handleShapeMouseUp = async evt => {
+        // console.log(evt)
+        // console.log(evt.nativeEvent)
+        console.log(evt.nativeEvent.offsetX)
+        await setMouseUpXCoords(evt.nativeEvent.offsetX)
+        console.log(evt.nativeEvent.offsetY)
+        await setMouseUpYCoords(evt.nativeEvent.offsetY)
+        await createRectangle();
+    }
+
+    const createRectangle = () => {
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext('2d');
+        let image = document.getElementById("image");
+        canvas.setAttribute('width', image.getAttribute('width'))
+        canvas.setAttribute('width', image.getAttribute('height'))
+        canvas.setAttribute('border', '1px solid black')
+        ctx.beginPath()
+        ctx.rect(0, 0, 25, 25)
+        ctx.stroke()
+        console.log('rectangle drawn')
+    }
+
     return (
         <div>
             <nav className={styles.bar}>
@@ -183,9 +226,14 @@ function EditProject() {
                         ))
                     }
                 </div>
-                <div className={styles.imageContainer}>
+                <div
+                    className={styles.imageContainer}
+                    onMouseDown={handleShapeMouseDown}
+                    onMouseUp={handleShapeMouseUp}
+                >
                     <div className={styles.imageContainer2}>
-                        <img id="image" alt="" src={image} className={styles.image} style={getImageStyle()}/>
+                        <canvas id="canvas" />
+                        <img draggable='false' id="image" alt="" src={image} className={styles.image} style={getImageStyle()}/>
                     </div>
                 </div>
             </div>

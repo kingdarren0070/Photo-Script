@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { axiosCall } from '../../../utils/axiosCall';
 import { MainContext } from '../../context/MainContext';
 import EditFilter from '../../edit-filter/EditFilter';
@@ -79,11 +79,13 @@ const defaultOptions = [
 ]
 
 function EditProject() {
-    const { image, loggedIn, user } = useContext(MainContext);
+    const { image, loggedIn } = useContext(MainContext);
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     const [options, setOptions] = useState(defaultOptions);
 
     const history = useHistory();
+
+    const { id } = useParams();
 
     const handleChange = (e) => {
         setOptions(prevOptions => {
@@ -107,17 +109,18 @@ function EditProject() {
             return `${option.property}(${option.value}${option.unit})`
         })
 
+        console.log(filters.join(' '));
         return(filters.join(' '))
     }
 
     const handleDownload = () => {
         let canvas = document.createElement("canvas");
-        let ctx = canvas.getContext('2d');
-        ctx.filter = getFiltersToString();
         let image = document.getElementById("image");
         canvas.width = image.width;
         canvas.height = image.height;
-        ctx.drawImage(image, 0, 0, image.width, image.height);
+        let ctx = canvas.getContext('2d');
+        ctx.filter = getFiltersToString();
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         let dt = canvas.toDataURL('image/png');
         let element = document.createElement('a');
         element.setAttribute('href', dt);
@@ -131,25 +134,40 @@ function EditProject() {
     const handleSave = () => {
         if (loggedIn) {
             let canvas = document.createElement("canvas");
-            let ctx = canvas.getContext('2d');
-            ctx.filter = getFiltersToString();
             let image = document.getElementById("image");
             canvas.width = image.width;
             canvas.height = image.height;
+            let ctx = canvas.getContext('2d');
+            ctx.filter = getFiltersToString();
             ctx.drawImage(image, 0, 0, image.width, image.height);
             let dt = canvas.toDataURL('image/png');
 
-            const newSave = {
-                userId: user.id,
-                imgData: dt
-            }
+            if(id) {
+                const updateImage = {
+                    id,
+                    userId: sessionStorage.getItem("userId"),
+                    imgData: dt
+                }
 
-            const saveImage = async () => {
-                await axiosCall('post', 'http://localhost:8080/images', newSave)
+                const editImage = async () => {
+                    await axiosCall('put', `http://localhost:8080/images/edit/${id}`, updateImage)
                     .then(() => history.push('/library'));
-            }
+                }
 
-            saveImage();
+                editImage();
+            } else {
+                const newSave = {
+                    userId: sessionStorage.getItem("userId"),
+                    imgData: dt
+                }
+
+                const saveImage = async () => {
+                    await axiosCall('post', 'http://localhost:8080/images', newSave)
+                        .then(() => history.push('/library'));
+                }
+    
+                saveImage();
+            }
         }
     }
 

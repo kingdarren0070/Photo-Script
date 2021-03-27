@@ -4,22 +4,22 @@ import styles from './DragAndDropBox.module.scss';
 
 const DragAndDropBox = ({ boxStyles, children }) => {
 
-  dropRef = React.createRef();
+  let dropRef = React.createRef();
 
   const handleDragIn = () => {
-    return null
+    console.log("You dragged something in!");
   };
 
   const handleDragOut = () => {
-    return null
+    console.log("You dragged something out!");
   };
   
   const handleDrop = () => {
-    return null
+    console.log("You dropped something!");
   };
 
   const handleDrag = () => {
-    return null
+    console.log("You dragged something over me! :O");
   };
 
   useEffect(() => {
@@ -29,13 +29,13 @@ const DragAndDropBox = ({ boxStyles, children }) => {
     div.addEventListener('dragover', handleDrag)
     div.addEventListener('drop', handleDrop)
     return () => {
-      let div = dropRef.current;  
+      // let div = dropRef.current;  
       div.removeEventListener('dragenter', handleDragIn)
       div.removeEventListener('dragleave', handleDragOut)
       div.removeEventListener('dragover', handleDrag)
       div.removeEventListener('drop', handleDrop)
     }
-  }, [input])
+  }, [dropRef]);
 
 
   return(

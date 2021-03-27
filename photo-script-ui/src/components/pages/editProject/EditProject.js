@@ -260,13 +260,20 @@ function EditProject() {
                 </div>
                 <div
                     className={styles.imageContainer}
-                    onMouseDown={handleShapeMouseDown}
-                    onMouseUp={handleShapeMouseUp}
+                    // onMouseDown={handleShapeMouseDown}
+                    // onMouseUp={handleShapeMouseUp}
                     // onWheel={handleWheel}
                 >
                     <div className={styles.imageContainer2} onWheel={handleWheel}>
                         {/* <canvas id="canvas" /> */}
-                        <img draggable='false' id="image" alt="" src={image} className={styles.image} style={getImageStyle()}/>
+                        <img
+                            draggable='false'
+                            id="image" alt=""
+                            src={image}
+                            className={styles.image}
+                            style={getImageStyle()}
+                            onMouseDown={e => console.log(e.target.x)}
+                        />
                     </div>
                 </div>
             </div>

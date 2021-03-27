@@ -3,8 +3,8 @@
     align-items: center;
     min-height: 12vh;
     max-height: 12vh;
-    background: #070B17;
-    color: white;
+    background: var(--color-header);
+    color: var(--color-text);
     position: sticky;
     width: 100%;
 }
@@ -14,7 +14,7 @@
     margin-left: 6%;
     font-size: 35px;
     text-decoration: none;
-    color: white;
+    color: var(--color-text);
 }
 
 .navLinks {
@@ -23,15 +23,16 @@
     justify-content: space-around;
     align-items: center;
     list-style: none;
-    color: white;
+    color: var(--color-text);
     margin-left: 50%;
 }
 
 .navLinks :hover {
+    text-decoration-color: var(--color-underline);
     text-decoration: underline;
 }
 
 .links {
-    color: white;
+    color: var(--color-text);
     text-decoration: none;
 }

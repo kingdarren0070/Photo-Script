@@ -1,6 +1,7 @@
 :root {
   // Root Colors
   --color-black: #070b17;
+  --color-blackblack: #000000;
   --color-blue: #5286da;
   --color-dark-grey: #3B3E47;
   --color-light-grey: #808080;
@@ -8,13 +9,21 @@
   --color-indigo: #714eb3;
   --color-orange: #f98d52;
   --color-red: #e14e65;
+  --color-turquoise: #1c87c9;
   --color-violet: #ee82ee;
   --color-white: #fefefe;
   --color-white2: #e2e2e2;
+  --color-white3: #cfd0d1;
   --color-yellow: #ebe051;
 
   // Component Colors
+  --color-button-background: var(--color-black);
+  --color-button-hover: var(--color-black);
+  --color-dark-border: var(--color-black);
   --color-header: var(--color-black);
+  --color-shadow: var(--color-black);
+  --color-spinner-border: var(--color-white3);
+  --color-spinner-border-bum: var(--color-turquoise);
   --color-text: var(--color-white);
   --color-underline: var(--color-white2);
 }

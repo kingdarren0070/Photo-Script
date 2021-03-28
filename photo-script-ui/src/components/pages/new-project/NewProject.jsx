@@ -46,7 +46,7 @@ const NewProject = () => {
     <div>
       <nav className={styles.bar}>
         <ul className={styles.navLinks}>
-          <Link className={styles.link} to="/library">Library</Link>
+          {/* <Link className={styles.link} to="/library">Library</Link> */}
           <Link className={styles.link} to="/settings">Settings</Link>
         </ul>
       </nav>

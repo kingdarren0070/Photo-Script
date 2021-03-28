@@ -12,7 +12,7 @@ function Header () {
         } else {
             setLoggedIn(false);
         }
-    }, [])
+    }, [setLoggedIn])
 
     const handleLogout = () => {
         setLoggedIn(false);

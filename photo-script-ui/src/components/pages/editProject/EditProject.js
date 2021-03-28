@@ -5,6 +5,7 @@ import { MainContext } from '../../context/MainContext';
 import EditFilter from '../../edit-filter/EditFilter';
 import styles from './EditProject.module.scss';
 import Modal from '../../modal/Modal';
+import LoadingSpinner from '../../loadingSpinner/LoadingSpinner';
 
 const defaultOptions = [
     {
@@ -84,6 +85,7 @@ function EditProject(match) {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     const [options, setOptions] = useState(defaultOptions);
     const [showModal, setShowModal] = useState(false);
+    const [loading, setLoading] = useState(false);
         
     const [isDraggingImage, setIsDraggingImage] = useState(false);
     const [prevMouseXPos, setPrevMouseXPos] = useState(0)
@@ -143,6 +145,7 @@ function EditProject(match) {
 
     const handleSave = () => {
         if (loggedIn) {
+            setLoading(true);
             let canvas = document.createElement("canvas");
             let image = document.getElementById("image");
             canvas.width = image.width;
@@ -161,7 +164,13 @@ function EditProject(match) {
 
                 const editImage = async () => {
                     await axiosCall('put', `http://localhost:8080/images/edit/${id}`, updateImage)
-                    .then(() => history.push('/library'));
+                    .then(() => {
+                        setLoading(false);
+                        history.push('/library');
+                    })
+                    .catch(() => {
+                        setLoading(false);
+                    })
                 }
 
                 editImage();
@@ -173,7 +182,10 @@ function EditProject(match) {
 
                 const saveImage = async () => {
                     await axiosCall('post', 'http://localhost:8080/images', newSave)
-                        .then(() => history.push('/library'));
+                        .then(() => {
+                            setLoading(false);
+                            history.push('/library');
+                        });
                 }
     
                 saveImage();
@@ -183,6 +195,7 @@ function EditProject(match) {
 
     const handleCopy = () => {
         if (loggedIn) {
+            setLoading(true);
             let canvas = document.createElement("canvas");
             let image = document.getElementById("image");
             canvas.width = image.width;
@@ -199,7 +212,10 @@ function EditProject(match) {
 
             const saveImage = async () => {
                 await axiosCall('post', 'http://localhost:8080/images', newSave)
-                    .then(() => history.push('/library'));
+                    .then(() => {
+                        setLoading(false);
+                        history.push('/library');
+                    });
             }
     
             saveImage();
@@ -216,10 +232,14 @@ function EditProject(match) {
 
     const handleDelete = () => {
         setShowModal(false);
+        setLoading(true);
         if(id) {
             const deleteImage = async () => {
                 await axiosCall('delete', `http://localhost:8080/images/${id}`)
-                    .then(() => history.push('/library'));
+                    .then(() => {
+                        setLoading(false);
+                        history.push('/library');
+                    });
             }
 
             deleteImage();
@@ -238,13 +258,11 @@ function EditProject(match) {
 
             const newMouseXPos = e.clientX;
             const newMouseYPos = e.clientY;
-            console.log(newMouseXPos)
 
             // calculate distance mouse moved while 'dragging' element
 
             const xDif = newMouseXPos - prevMouseXPos;
             const yDif = newMouseYPos - prevMouseYPos;
-            console.log(xDif)
 
             // set prev mous x pos
 
@@ -255,7 +273,6 @@ function EditProject(match) {
 
             e.target.style.top = e.target.offsetTop + yDif + "px"
             e.target.style.left = e.target.offsetLeft + xDif + "px"
-            console.log(e.target.style.top)
 
         }
 
@@ -325,6 +342,7 @@ function EditProject(match) {
                 </ul>
             </nav>
             <div className={styles.mainContainer}>
+                {loading && <LoadingSpinner />}
                 <div className={styles.sideBar}>
                     {
                         options.map((filter, index) => (

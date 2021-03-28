@@ -6,9 +6,10 @@ import Home from './components/pages/home/Home';
 import LoginRegistration from './components/pages/loginRegistration/LoginRegistration';
 import NewProject from './components/pages/new-project/NewProject';
 import Library from './components/pages/library/Library';
+import Settings from './components/pages/settings/Settings';
 
 function App() {
-  return(
+  return (
     <div className="App">
       <Router>
         <NavBar />
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/edit" component={EditProject} />
           <Route exact path="/edit/:id" component={EditProject} />
           <Route exact path="/library" component={Library} />
+          <Route path="/settings" component={Settings} />
         </Switch>
       </Router>
     </div>

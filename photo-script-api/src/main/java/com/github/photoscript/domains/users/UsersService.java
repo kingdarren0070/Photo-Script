@@ -10,7 +10,7 @@ public interface UsersService {
 
   Users createUser(Users user) throws NoSuchAlgorithmException;
 
-  Users updateUser(Long id, Users user);
+  Users updateUser(Long id, Users user) throws NoSuchAlgorithmException;
 
   void deleteUser(Long id);
 

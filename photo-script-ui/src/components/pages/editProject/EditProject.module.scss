@@ -68,6 +68,8 @@ body {
     list-style: none;
     color: var(--color-text-three);
     margin-left: 3vw;
+    margin-bottom: 0px;
+    margin-block-end: 0px;
 }
 
 .navLinks2 {
@@ -78,28 +80,35 @@ body {
     list-style: none;
     color: var(--color-text-three);
     margin-right: 5vw;
+    margin-bottom: 0px;
+    margin-block-end: 0px;
 }
 
-.navLinks1 :hover {
-    text-decoration-color: var(--color-underline);
-    text-decoration: underline;
-    cursor: pointer;
-}
+// .navLinks1 :hover {
+//     text-decoration-color: var(--color-underline);
+//     text-decoration: underline;
+//     cursor: pointer;
+// }
 
-.navLinks2 :hover {
-    text-decoration-color: var(--color-underline);
-    text-decoration: underline;
-    cursor: pointer;
-}
+// .navLinks2 :hover {
+//     text-decoration-color: var(--color-underline);
+//     text-decoration: underline;
+//     cursor: pointer;
+// }
 
 .link {
    color: var(--color-text);
+   margin-bottom: 0px;
    text-decoration: none;
+   margin-block-end: 0px;
+   cursor: pointer;
 }
 
-.link :hover {
+.link:hover {
     text-decoration-color: var(--color-underline);
     text-decoration: underline;
+    margin-bottom: 0px;
+    color: var(--color-text);
     cursor: pointer;
 }
 

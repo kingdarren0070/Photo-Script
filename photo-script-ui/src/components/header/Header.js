@@ -26,15 +26,15 @@ function Header () {
             ?
             (
                 <ul className={styles.navLinks}>
-                    <Link className={styles.link} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${sessionStorage.getItem("userId")}`}>Profile</Link>
-                    <Link className={styles.link} to="/" onClick={handleLogout}>Logout</Link>
+                    <Link className={styles.links} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${sessionStorage.getItem("userId")}`}>Profile</Link>
+                    <Link className={styles.links} to="/" onClick={handleLogout}>Logout</Link>
                 </ul>
             )
             :
             (
                 <ul className={styles.navLinks}>
-                    <Link className={styles.link} to="/login">Login</Link>
-                    <Link className={styles.link} to="/registration">Register</Link>
+                    <Link className={styles.links} to="/login">Login</Link>
+                    <Link className={styles.links} to="/registration">Register</Link>
                 </ul>
             )}
         </nav>

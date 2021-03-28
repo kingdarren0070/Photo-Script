@@ -21,7 +21,11 @@ function Header () {
 
     return (
         <nav className={styles.bar}>
-            <Link className={styles.title} to="/"><p>PhotoScript</p></Link>
+            <div className={styles.titleContainer}>
+                <Link className={styles.title} to="/">
+                    <p>PhotoScript</p>
+                </Link>
+            </div>
             {loggedIn
             ?
             (

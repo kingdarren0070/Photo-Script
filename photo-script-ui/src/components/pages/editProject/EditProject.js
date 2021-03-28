@@ -288,14 +288,30 @@ function EditProject() {
     
     // zoom feature
 
-    const handleWheel = (evt) => {
+    const zoom = (magnitude, image) => {
+
+        // vars
+
+        let currentImageHeight = image.height;
+        let currentImageWidth = image.width;
+        let newImageHeight = (image.height * magnitude)
+        let newImageWidth = (image.width * magnitude)
+        
+        // calculate new values
+
+        image.style.top = image.offsetTop - Math.floor((newImageHeight - currentImageHeight)/2) + 'px'
+        image.style.left = image.offsetLeft - Math.floor((newImageWidth - currentImageWidth)/2) + 'px'
+        image.height = (image.height * magnitude)
+        image.width = (image.width * magnitude)
+
+    }
+
+    const handleWheel = (e) => {
         const image = document.getElementById('image')
-        if (evt.deltaY < 0) {
-            image.width = (image.width * .96)
-        }
-        if (evt.deltaY > 0) {
-            image.width = (image.width * 1.04)
-        }
+        image.style.top = image.offsetTop;
+        image.style.left = image.offsetLeft
+        if (e.deltaY < 0) zoom(.9, image)
+        if (e.deltaY > 0) zoom(1.1, image)
     }
 
     return (

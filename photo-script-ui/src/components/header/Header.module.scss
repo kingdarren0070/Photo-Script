@@ -1,41 +1,56 @@
 .bar {
-    display: flex;
-    align-items: center;
-    min-height: 12vh;
-    max-height: 12vh;
-    background: var(--color-header);
-    color: var(--color-text);
-    position: sticky;
-    width: 100%;
-    z-index: 99;
+  display: flex;
+  align-items: center;
+  min-height: 12vh;
+  max-height: 12vh;
+  background: var(--color-header);
+  color: var(--color-text);
+  position: sticky;
+  width: 100%;
+  z-index: 99;
 }
 
 .title {
-    display: block;
-    margin-left: 6%;
-    font-size: 50px;
-    text-decoration: none;
-    font-family: Brush Script MT, Brush Script Std, cursive;
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
-    color: transparent;
+  display: block;
+  margin-left: 6%;
+  font-size: 50px;
+  text-decoration: none;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .navLinks {
-    width: 25%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    color: var(--color-text);
-    margin-left: 50%;
-}
-
-.navLinks :hover {
-    text-decoration-color: var(--color-underline);
-    text-decoration: underline;
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: var(--color-text);
+  margin-left: 50%;
 }
 
 .links {
-    color: var(--color-text);
-    text-decoration: none;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.links:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.title:hover {
+  text-decoration: none;
+  display: block;
+  margin-left: 6%;
+  font-size: 50px;
+  text-decoration: none;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

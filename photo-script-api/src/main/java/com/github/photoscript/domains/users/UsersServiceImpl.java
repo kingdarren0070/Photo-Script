@@ -77,8 +77,15 @@ public class UsersServiceImpl implements UsersService{
   }
 
   @Override
-  public Users updateUser(Long id, Users user) {
+  public Users updateUser(Long id, Users user) throws NoSuchAlgorithmException {
     Users updatedUser = null;
+
+    String password = user.getPassword();
+    String salt = String.valueOf(Salt.getSaltCode());
+    user.setSalt(salt);
+    password += salt;
+    password = Hash.getHex(password);
+    user.setPassword(password);
 
     try {
       Optional<Users> userToUpdate = usersRepository.findById(id);

@@ -1,97 +1,98 @@
 .bar {
-    display: flex;
-    align-items: center;
-    min-height: 10vh;
-    max-height: 10vh;
-    background: #242834;
-    color: var(--color-text);
-    position: sticky;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+  max-height: 10vh;
+  background: #242834;
+  color: var(--color-text);
+  position: sticky;
+  width: 100%;
 }
 
-.imageContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-row-gap: 15px;
-    justify-items: center;
-    justify-content: center;
-    margin-bottom: 5rem;
+.imageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 15px;
+  justify-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
 }
 
 .image {
-    width: 50%;
+  width: 50%;
 }
 
 .image :hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .imageContainer :hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .title {
-    font-size: 50px;
-    margin-top: 3%;
-    padding-top: 3%;
-    margin-top: 0%;
-    font-weight: bold;
-    margin-left: 6vw;
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
-    color: transparent;
+  font-size: 50px;
+  margin-top: 3%;
+  padding-top: 3%;
+  margin-top: 0%;
+  font-weight: bold;
+  margin-left: 6vw;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .mainContainer {
-    min-width: 100vw;
-    min-height: 78vh;
-    background-color: var(--color-dark-grey);
+  min-width: 100vw;
+  min-height: 78vh;
+  background-color: var(--color-dark-grey);
 }
 
 .navLinks1 {
-    width: 30%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    color: var(--color-text);
-    margin-left: 5%;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: var(--color-text);
+  margin-left: 5%;
 }
 
 .navLinks2 {
-    width: 25%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    color: var(--color-text);
-    margin-left: 30%;
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: var(--color-text);
+  margin-left: 30%;
 }
 
-.navLinks1 :hover {
-    text-decoration-color: var(--color-underline);
-    text-decoration: underline;
-    cursor: pointer;
-}
+// .navLinks1 :hover {
+//     text-decoration-color: var(--color-underline);
+//     text-decoration: underline;
+//     cursor: pointer;
+// }
 
-.navLinks2 :hover {
-    text-decoration-color: var(--color-underline);
-    text-decoration: underline;
-    cursor: pointer;
-}
+// .navLinks2 :hover {
+//     text-decoration-color: var(--color-underline);
+//     text-decoration: underline;
+//     cursor: pointer;
+// }
 
 .links {
-    color: var(--color-text);
-    text-decoration: none;
+  color: var(--color-text);
+  text-decoration: none;
 }
 
-.links :hover {
-    text-decoration-color: var(--color-underline);
-    text-decoration: underline;
-    cursor: pointer;
+.links:hover {
+  color: var(--color-text);
+  text-decoration: underline;
 }
 
 .noContent {
-    text-align: center;
-    font-size: 50px;
-    color: white;
+  text-align: center;
+  font-size: 50px;
+  color: white;
 }

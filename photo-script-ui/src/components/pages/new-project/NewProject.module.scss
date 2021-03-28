@@ -15,8 +15,20 @@
 .uploadBoxDropZone {
   padding: 15vh;
   background-color: var(--color-dark-grey);
-  border: 2px dashed var(--color-light-grey);
+  border: 4px dashed transparent;
+  border-image: linear-gradient(
+    45deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    purple,
+    indigo,
+  );
+  border-image-slice: 1;
   display: block;
+  animation: rotate 5s linear infinite;
 }
 
 .uploadBoxDropZoneHeading {

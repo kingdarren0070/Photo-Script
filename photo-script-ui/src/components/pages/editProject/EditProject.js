@@ -79,7 +79,7 @@ const defaultOptions = [
     }
 ]
 
-function EditProject() {
+function EditProject(match) {
     const { image, loggedIn } = useContext(MainContext);
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     const [options, setOptions] = useState(defaultOptions);
@@ -263,11 +263,6 @@ function EditProject() {
 
     const handleImageMouseDown = async (e) => {
 
-        // get and set element's current position
-
-        const top = e.target.offsetTop;
-        const left = e.target.offsetLeft;
-
         // get mouse current position
 
         setPrevMouseXPos(e.clientX)
@@ -318,15 +313,15 @@ function EditProject() {
         <div>
             <nav className={styles.bar}>
                 <ul className={styles.navLinks1}>
-                    <Link className={styles.links} to="/new">New</Link>
-                    <p className={styles.links} onClick={handleDownload}>Download</p>
-                    {loggedIn && <p className={styles.links} onClick={handleSave}>Save</p>}
-                    {loggedIn && <p className={styles.links} onClick={handleCopy}>Save Copy</p>}
-                    {loggedIn && <p className={styles.links} onClick={openDeleteModal}>Delete</p>}
+                    <Link className={styles.link} to="/new">New</Link>
+                    <p className={styles.link} onClick={handleDownload}>Download</p>
+                    {loggedIn && <p className={styles.link} onClick={handleSave}>Save</p>}
+                    {loggedIn && <p className={styles.link} onClick={handleCopy}>Save Copy</p>}
+                    {loggedIn && <p className={styles.link} onClick={openDeleteModal}>Delete</p>}
                 </ul>
                 <ul className={styles.navLinks2}>
-                  <Link className={styles.links} to="/library">Library</Link>
-                  <Link className={styles.links} to="/settings">Settings</Link>
+                  <Link className={styles.link} to="/library">Library</Link>
+                  <Link className={styles.link} to="/settings">Settings</Link>
                 </ul>
             </nav>
             <div className={styles.mainContainer}>

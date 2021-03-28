@@ -47,6 +47,7 @@
 .bar {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   min-height: 10vh;
   max-height: 10vh;
   background: #242834;
@@ -56,13 +57,12 @@
 }
 
 .navLinks {
-  width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  margin-right: 5vw;
   align-items: center;
   list-style: none;
   color: var(--color-text);
-  margin-left: 24%;
 }
 
 .navLinks :hover {
@@ -70,7 +70,12 @@
   text-decoration: underline;
 }
 
-.links {
+.link {
   color: var(--color-text);
   text-decoration: none;
+  margin-left: 2vw;
 }
+
+// .link:hover {
+//   text-underline-offset: 5px;
+// }

@@ -46,11 +46,11 @@ function Library () {
         <div>
             <nav className={styles.bar}>
                 <ul className={styles.navLinks1}>
-                    <Link className={styles.links} to="/new">New</Link>
+                    <Link className={styles.link} to="/new">New</Link>
                 </ul>
                 <ul className={styles.navLinks2}>
-                  <Link className={styles.links} to="/library">Library</Link>
-                  <Link className={styles.links} to="/settings">Settings</Link>
+                  <Link className={styles.link} to="/library">Library</Link>
+                  <Link className={styles.link} to="/settings">Settings</Link>
                 </ul>
             </nav>
             <div className={styles.mainContainer}>

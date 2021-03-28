@@ -46,8 +46,8 @@ const NewProject = () => {
     <div>
       <nav className={styles.bar}>
         <ul className={styles.navLinks}>
-          <Link className={styles.links} to="/library">Library</Link>
-          <Link className={styles.links} to="/settings">Settings</Link>
+          <Link className={styles.link} to="/library">Library</Link>
+          <Link className={styles.link} to="/settings">Settings</Link>
         </ul>
       </nav>
       <div className={styles.mainContainer}>

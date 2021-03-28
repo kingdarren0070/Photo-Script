@@ -1,6 +1,7 @@
 .bar {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     min-height: 10vh;
     max-height: 10vh;
     background: #242834;
@@ -31,40 +32,60 @@
 }
 
 .title {
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 3%;
     padding-top: 3%;
     margin-top: 0%;
     font-weight: bold;
-    margin-left: 6vw;
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
-    color: transparent;
+    margin-left: 5vw;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: white;
 }
 
 .mainContainer {
     min-width: 100vw;
     min-height: 78vh;
-    background-color: var(--color-dark-grey);
+    // background-color: var(--color-dark-grey);
+    background-image: linear-gradient(
+        45deg,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        purple
+    );
+    background-size: 500%;
+    animation: bg-animation 12s infinite alternate;
+}
+
+@keyframes bg-animation {
+    0% {background-position: left}
+    100% {background-position: right}
 }
 
 .navLinks1 {
-    width: 30%;
+    flex-basis: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     list-style: none;
     color: var(--color-text);
-    margin-left: 5%;
+    margin-left: 3vw;
 }
 
 .navLinks2 {
-    width: 25%;
+    flex-basis: 50%;
+    width: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    justify-self: flex-end;
     align-items: center;
     list-style: none;
     color: var(--color-text);
-    margin-left: 30%;
+    margin-right: 5vw;
 }
 
 .navLinks1 :hover {
@@ -79,19 +100,24 @@
     cursor: pointer;
 }
 
-.links {
+.link {
     color: var(--color-text);
     text-decoration: none;
 }
 
-.links :hover {
+.link :hover {
     text-decoration-color: var(--color-underline);
     text-decoration: underline;
     cursor: pointer;
 }
 
 .noContent {
+    margin-top: 80px;
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
     color: white;
+}
+
+.navLinks2 > .link {
+    margin-left: 2vw;
 }

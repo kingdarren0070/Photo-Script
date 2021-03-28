@@ -16,6 +16,7 @@ body {
 }
 
 .sideBar {
+    padding-top: 50px;
     max-width: 20%;
     min-width: 20%;
     display: inline;
@@ -60,23 +61,23 @@ body {
 }
 
 .navLinks1 {
-    width: 30%;
+    flex-basis: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     list-style: none;
-    color: var(--color-text);
-    margin-left: 5%;
+    color: var(--color-text-three);
+    margin-left: 3vw;
 }
 
 .navLinks2 {
-    width: 25%;
+    flex-basis: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     list-style: none;
-    color: var(--color-text);
-    margin-left: 30%;
+    color: var(--color-text-three);
+    margin-right: 5vw;
 }
 
 .navLinks1 :hover {
@@ -91,13 +92,21 @@ body {
     cursor: pointer;
 }
 
-.links {
+.link {
    color: var(--color-text);
    text-decoration: none;
 }
 
-.links :hover {
+.link :hover {
     text-decoration-color: var(--color-underline);
     text-decoration: underline;
     cursor: pointer;
+}
+
+.navLinks1 > .link {
+    margin-right: 2vw;
+}
+
+.navLinks2 > .link {
+    margin-left: 2vw;
 }

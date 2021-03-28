@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MainContext } from '../context/MainContext';
 import styles from './Header.module.scss';
 
@@ -23,16 +23,18 @@ function Header () {
         <nav className={styles.bar}>
             <Link className={styles.title} to="/"><p>PhotoScript</p></Link>
             {loggedIn
-            ? (
+            ?
+            (
                 <ul className={styles.navLinks}>
-                    <NavLink className={styles.links} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${sessionStorage.getItem("userId")}`}>Profile</NavLink>
-                    <Link className={styles.links} to="/" onClick={handleLogout}>Logout</Link>
+                    <Link className={styles.link} activeStyle={{ textDecoration: 'underline' }} to={`/profile/${sessionStorage.getItem("userId")}`}>Profile</Link>
+                    <Link className={styles.link} to="/" onClick={handleLogout}>Logout</Link>
                 </ul>
             )
-            : (
+            :
+            (
                 <ul className={styles.navLinks}>
-                    <Link className={styles.links} to="/login">Login</Link>
-                    <Link className={styles.links} to="/registration">Register</Link>
+                    <Link className={styles.link} to="/login">Login</Link>
+                    <Link className={styles.link} to="/registration">Register</Link>
                 </ul>
             )}
         </nav>

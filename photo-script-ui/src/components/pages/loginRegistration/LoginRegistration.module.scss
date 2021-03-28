@@ -14,7 +14,7 @@
         violet
     );
     background-size: 500%;
-    animation: form-bg-animation 12s infinite alternate;
+    animation: bg-animation 12s infinite alternate;
 }
 
 .form {
@@ -23,7 +23,7 @@
     border-radius: 10px;
 }
 
-@keyframes form-bg-animation {
+@keyframes bg-animation {
     0% {background-position: left}
     100% {background-position: right}
 }

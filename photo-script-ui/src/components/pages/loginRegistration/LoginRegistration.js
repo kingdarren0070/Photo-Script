@@ -95,7 +95,7 @@ function LoginRegistration() {
                         ?
                         'Login'
                         :
-                        'Registeration'
+                        'Registration'
                         }
                     </div>
                     {error && <p className={styles.error}>{error}</p>}

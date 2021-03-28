@@ -5,7 +5,6 @@ import { axiosCall } from '../../../utils/axiosCall';
 import styles from './LoginRegistration.module.scss';
 import LoadingSpinner from '../../loadingSpinner/LoadingSpinner';
 
-
 function LoginRegistration() {
   const [credentials, setCredentials] = useState({
     username: '',

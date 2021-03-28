@@ -1,12 +1,21 @@
 .bar {
-  display: flex;
-  align-items: center;
-  min-height: 10vh;
-  max-height: 10vh;
-  background: #242834;
-  color: var(--color-text);
-  position: sticky;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 10vh;
+    max-height: 10vh;
+    background: #242834;
+    color: var(--color-text);
+    position: sticky;
+    width: 100%;
+//   display: flex;
+//   align-items: center;
+//   min-height: 10vh;
+//   max-height: 10vh;
+//   background: #242834;
+//   color: var(--color-text);
+//   position: sticky;
+//   width: 100%;
 }
 
 .imageContainer {
@@ -31,68 +40,99 @@
 }
 
 .title {
-  font-size: 50px;
-  margin-top: 3%;
-  padding-top: 3%;
-  margin-top: 0%;
-  font-weight: bold;
-  margin-left: 6vw;
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+    font-size: 40px;
+    margin-top: 3%;
+    padding-top: 3%;
+    margin-top: 0%;
+    font-weight: bold;
+    margin-left: 5vw;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: white;
 }
 
 .mainContainer {
-  min-width: 100vw;
-  min-height: 78vh;
-  background-color: var(--color-dark-grey);
+    min-width: 100vw;
+    min-height: 78vh;
+    // background-color: var(--color-dark-grey);
+    background-image: linear-gradient(
+        45deg,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        purple
+    );
+    background-size: 500%;
+    animation: bg-animation 12s infinite alternate;
+}
+
+@keyframes bg-animation {
+    0% {background-position: left}
+    100% {background-position: right}
 }
 
 .navLinks1 {
-  width: 30%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  color: var(--color-text);
-  margin-left: 5%;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    color: var(--color-text);
+    margin-left: 3vw;
+    margin-bottom: 0px;
+    margin-block-end: 0px;
 }
 
 .navLinks2 {
-  width: 25%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  color: var(--color-text);
-  margin-left: 30%;
+    flex-basis: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    align-items: center;
+    list-style: none;
+    color: var(--color-text);
+    margin-right: 5vw;
+    margin-bottom: 0px;
+    margin-block-end: 0px;
 }
 
-// .navLinks1 :hover {
-//     text-decoration-color: var(--color-underline);
-//     text-decoration: underline;
-//     cursor: pointer;
-// }
-
-// .navLinks2 :hover {
-//     text-decoration-color: var(--color-underline);
-//     text-decoration: underline;
-//     cursor: pointer;
-// }
-
-.links {
-  color: var(--color-text);
-  text-decoration: none;
+.link {
+    color: var(--color-text);
+    text-decoration: none;
 }
 
-.links:hover {
-  color: var(--color-text);
-  text-decoration: underline;
+.link:hover {
+    text-decoration-color: var(--color-underline);
+    text-decoration: underline;
+    color: var(--color-text);
+    cursor: pointer;
 }
 
 .noContent {
-  text-align: center;
-  font-size: 50px;
-  color: white;
+    margin-top: 80px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+.navLinks2 > .link {
+    margin-left: 2vw;
+// .links {
+//   color: var(--color-text);
+//   text-decoration: none;
+// }
+
+// .links:hover {
+//   color: var(--color-text);
+//   text-decoration: underline;
+// }
+
+// .noContent {
+//   text-align: center;
+//   font-size: 50px;
+//   color: white;
 }

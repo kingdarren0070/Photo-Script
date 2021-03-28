@@ -83,21 +83,31 @@ function LoginRegistration() {
 
   return (
     <div className={styles.formContainer}>
-      {loading ? <LoadingSpinner />
-        :
-        <form className={styles.form} onSubmit={handleSubmit}>
-          {login ? <p className={styles.formHeading}>Login</p>
+      <div>
+        {
+          loading
+            ?
+            <LoadingSpinner />
             :
-            <p className={styles.formHeading}>Registration</p>
-          }
-          {error && <p className={styles.error}>{error}</p>}
-          <input className={styles.formInput} placeholder="Email" value={credentials.username} onChange={(e) => handleChange(e, "username")} type="email"></input> <br />
-          <input className={styles.formInput} placeholder="Password" value={credentials.password} onChange={(e) => handleChange(e, "password")} type="password"></input> <br />
-          <div className={styles.buttonContainer}>
-            <button className={styles.formButton} type="submit">Submit</button>
-          </div>
-        </form>
-      }
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <div className={styles.formHeading}>
+                {
+                  login
+                    ?
+                    'Login'
+                    :
+                    'Registration'
+                }
+              </div>
+              {error && <p className={styles.error}>{error}</p>}
+              <input className={styles.formInput} placeholder="Email" value={credentials.username} onChange={(e) => handleChange(e, "username")} type="email"></input> <br />
+              <input className={styles.formInput} placeholder="Password" value={credentials.password} onChange={(e) => handleChange(e, "password")} type="password"></input> <br />
+              <div className={styles.buttonContainer}>
+                <button className={styles.formButton} type="submit">Submit</button>
+              </div>
+            </form>
+        }
+      </div>
     </div>
   )
 }

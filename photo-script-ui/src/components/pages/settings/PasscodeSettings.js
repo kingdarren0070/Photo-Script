@@ -14,6 +14,20 @@ const PasscodeSettings = () => {
 
   const id = sessionStorage.getItem("userId");
 
+  const changePassword = () => {
+    return axiosCall(
+      "put",
+      `http://localhost:8080/users/edit/${id}`,
+      { id, username: sessionStorage.getItem('userEmail'), password: newPassword }
+    ).then(() => {
+      Object.values(setters).forEach((setter) => {
+        setter("");
+      })
+      setSuccess(true);
+      setError("");
+    }).catch(() => { setError("Unexpected error occured, please try your request again later") })
+  }
+
   const handleSubmit = (e) => {
     setSuccess(false);
     setError("");
@@ -24,18 +38,10 @@ const PasscodeSettings = () => {
     } else if (newPassword !== confirmPassword) {
       setError("New Password does not match confirm password");
     } else (
-      axiosCall(
-        "put",
-        `http://localhost:8080/users/edit/${id}`,
-        { id, username: sessionStorage.getItem('userEmail'), password: currentPassword }
-      ).then(() => {
-        Object.values(setters).forEach((setter) => {
-          setter("");
-        })
-        setSuccess(true);
-        setError("");
-      }).catch(() => { setError("Unexpected error occured, please try your request again later") })
-    )
+      axiosCall("post", 'http://localhost:8080/login', { username: sessionStorage.getItem("userEmail"), password: currentPassword })
+        .then(() =>
+          changePassword()
+        ).catch(() => setError("Incorrect current password")))
   }
 
   const handleChange = ({ target: { name, value } }) => {

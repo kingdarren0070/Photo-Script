@@ -50,7 +50,7 @@ function Library() {
                     <Link className={styles.link} to="/new">New</Link>
                 </ul>
                 <ul className={styles.navLinks2}>
-                  <Link className={styles.link} to="/library">Library</Link>
+                  {/* <Link className={styles.link} to="/library">Library</Link> */}
                   <Link className={styles.link} to="/settings">Settings</Link>
                 </ul>
             </nav>

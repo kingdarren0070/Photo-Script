@@ -337,7 +337,7 @@ function EditProject(match) {
                     {loggedIn && <p className={styles.link} onClick={openDeleteModal}>Delete</p>}
                 </ul>
                 <ul className={styles.navLinks2}>
-                  <Link className={styles.link} to="/library">Library</Link>
+                  {/* <Link className={styles.link} to="/library">Library</Link> */}
                   <Link className={styles.link} to="/settings">Settings</Link>
                 </ul>
             </nav>

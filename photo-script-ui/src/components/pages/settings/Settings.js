@@ -32,16 +32,16 @@ const Settings = () => {
             <div className="p-2" style={styles}>
               <ul style={{ listStyleType: 'none' }}>
                 <li className="mb-3 mt-3">
-                  <Link className={css.links} active to={`${url}/account`}>Account</Link>
+                  <Link className={css.links} to={`${url}/account`}>Account</Link>
                 </li>
                 <li className="mb-3 mt-3">
-                  <Link className={css.links} active to={`${url}/profile`}>Profile</Link>
+                  <Link className={css.links} to={`${url}/profile`}>Profile</Link>
                 </li>
                 <li className="mb-3 mt-3">
-                  <Link className={css.links} active to={`${url}/customization`}>Customization</Link>
+                  <Link className={css.links} to={`${url}/customization`}>Customization</Link>
                 </li>
                 <li className="mb-3 mt-3">
-                  <Link className={css.links} active to={`${url}/passcode`}>Change Passcode</Link>
+                  <Link className={css.links} to={`${url}/passcode`}>Change Passcode</Link>
                 </li>
               </ul>
             </div>

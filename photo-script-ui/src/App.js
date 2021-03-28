@@ -9,7 +9,7 @@ import Library from './components/pages/library/Library';
 import Settings from './components/pages/settings/Settings';
 
 function App() {
-  return(
+  return (
     <div className="App">
       <Router>
         <NavBar />
@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/edit" component={EditProject} />
           <Route exact path="/edit/:id" component={EditProject} />
           <Route exact path="/library" component={Library} />
-          <Route exact path="/settings" component={Settings} />
+          <Route path="/settings" component={Settings} />
         </Switch>
       </Router>
     </div>

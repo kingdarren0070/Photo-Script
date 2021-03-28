@@ -2,7 +2,7 @@ import React from 'react'
 
 const CustomizationSettings = () => {
   return (
-    <div>
+    <div style={{ color: "#eee" }}>
       Customization Settings
     </div>
   )

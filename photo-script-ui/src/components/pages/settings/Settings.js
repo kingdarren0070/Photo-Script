@@ -25,7 +25,7 @@ const Settings = () => {
     <div>
       <div className="container">
         <div className="row">
-          <h2 className="mt-3 ml-5 font-weight-bold">Settings</h2>
+          <h2 className="mt-3 ml-5 font-weight-bold" style={{ color: "#eee" }}>Settings</h2>
         </div>
         <div className="row">
           <div className="col-3">

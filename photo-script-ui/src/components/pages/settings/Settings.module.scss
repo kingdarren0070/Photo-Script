@@ -1,0 +1,51 @@
+.links:active {
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: #c2c1c1;
+}
+
+.links {
+  color: #eee;
+  text-decoration: none;
+}
+
+.formInput {
+  margin-left: 1rem;
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 15px 20px;
+  border: thin black solid;
+  width: 60%;
+}
+
+.formHeading {
+  color: #eee;
+  padding-bottom: 0.5rem;
+  font-size: 25px;
+  margin: 0.25rem;
+  margin-left: 1rem;
+}
+
+.formButton {
+  padding: 0.5rem;
+  height: 40px;
+  display: table;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.formButton:hover {
+  cursor: pointer;
+}
+
+.formButton:active {
+  background-color: #c2c1c1;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}

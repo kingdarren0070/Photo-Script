@@ -47,7 +47,8 @@ public class UsersController {
   }
 
   @PutMapping("/edit/{id}")
-  public ResponseEntity<Users> updateUser(@PathVariable Long id, @Valid @RequestBody Users user) {
+  public ResponseEntity<Users> updateUser(@PathVariable Long id, @Valid @RequestBody Users user)
+      throws NoSuchAlgorithmException {
     logger.info("Edit user request received");
     return new ResponseEntity<>(usersService.updateUser(id, user), HttpStatus.OK);
   }

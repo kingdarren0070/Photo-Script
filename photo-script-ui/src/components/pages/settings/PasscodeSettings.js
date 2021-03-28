@@ -49,11 +49,11 @@ const PasscodeSettings = () => {
   }
 
   return (
-    <div>
+    <div style={{padding:'25px'}}>
       <form>
         {success && <p className={styles.success}>Password has been successfully changed!</p>}
         {error && <p className={styles.error}>{error}</p>}
-        <p className={styles.formHeading}>Change Passcode</p>
+        <p className={styles.formHeading} style={{marginBottom:'25px'}} >Change Passcode</p>
         <input className={styles.formInput} onChange={handleChange} value={currentPassword || ""} name="current" type="password" placeholder="Current Password"></input>
         <input className={styles.formInput} onChange={handleChange} value={newPassword || ""} name="new" type="password" placeholder="New Password"></input>
         <input className={styles.formInput} onChange={handleChange} value={confirmPassword || ""} name="confirm" type="password" placeholder="Confirm Password"></input>

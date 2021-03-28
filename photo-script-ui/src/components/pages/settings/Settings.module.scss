@@ -2,6 +2,16 @@
   text-decoration: none;
 }
 
+.mainContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.childContainer {
+  margin-top: 5vh;
+  flex-basis: 90vw;
+}
+
 .links:hover {
   text-decoration: none;
   color: #c2c1c1;
@@ -30,11 +40,15 @@
 }
 
 .formButton {
-  padding: 0.5rem;
-  height: 40px;
+  // padding: 0.5rem;
+  // height: 40px;
   display: table;
   margin-left: 1rem;
   margin-bottom: 0.5rem;
+  padding: 12px 40px;
+  background-color: var(--color-button-background);
+  color: var(--color-text);
+  border: 0;
 }
 
 .formButton:hover {
